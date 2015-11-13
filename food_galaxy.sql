@@ -46,9 +46,8 @@ create table food
 
 create table review
 (
-  review_id int unsigned not null auto_increment primary key,
-  food_id int,
-  type int,
+  review_id int unsigned not null auto_increment primary key,  
+  type int, //0 食物 ； 1 厂家 
   target_id int,
   author char(60) not null,
   content text

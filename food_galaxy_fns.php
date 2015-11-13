@@ -3,11 +3,10 @@
   include_once('output_fns.php');
   include_once('data_valid_fns.php');
   include_once('user_auth_fns.php');
+  include_once('galaxy_fns.php');
+  
   /*
-  
-  include_once('output_fns.php');
-  include_once('book_fns.php');
-  
+ 
   include_once('admin_fns.php');
   include_once('order_fns.php');
   */

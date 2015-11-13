@@ -31,6 +31,14 @@ function addNewBookmark() {
   myReq.send(params);
 }
 
+function HasLogged() 
+{
+	if(!isset($_SESSION['valid_user'])){
+		alert("Please sign in before writing review!");
+		return false;
+	}   
+}
+
 function addBMResponse() {
   if (myReq.readyState == 4) {
     if(myReq.status == 200) {

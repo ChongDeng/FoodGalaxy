@@ -1,7 +1,9 @@
 <?php
   include ('food_galaxy_fns.php');
   // The shopping cart needs sessions, so start one
-  session_start();
+ 
+   do_html_header("Welcome to Food Galaxy");
+   do_html_footer();
   /*
   do_html_header("Welcome to Book-O-Rama");
 

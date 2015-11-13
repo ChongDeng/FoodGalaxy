@@ -5,23 +5,49 @@ function do_html_header($title) {
 ?>
   <html>
   <head>
-    <title><?php echo $title;?></title>
-    <style>
-      body { font-family: Arial, Helvetica, sans-serif; font-size: 13px }
-      li, td { font-family: Arial, Helvetica, sans-serif; font-size: 13px }
-      hr { color: #3333cc; }
-      a { color: #000000 }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+    <style>    	
+    	body { padding-top: 70px; }
+    	
+    	.navbar-header .logo  { padding-top: 10px; }
+    	
     </style>
-
-    <link rel="stylesheet" type="text/css" href="css/new_ss.css"/>
-    <script src="js/new_ajax.js" type="text/javascript"></script>
-
   </head>
+
   <body>
-  <img src="img/logo.png" alt="PHPbookmark logo" border="0"
-       align="left" valign="bottom" height="50" width="50" />
-  <h1>PHPbookmark</h1>
-  <hr />
+  	<nav class="navbar navbar-inverse navbar-fixed-top">
+  		<div class="container-fluid">
+  			<div class="navbar-header logo">
+  				<a  class="navbar-brand" href="#">
+  					<img alt="Brand" src="img/logo.jpg" style="width: 100px">
+  				</a>
+  			</div>
+  			
+  			<ul class="nav navbar-nav">
+  				<li class="active"><a href="#">Link <span class="sr-only"></span></a></li>
+  				<li><a href="#">Link</a></li>
+  				<li class="dropdown"><a href="#"  class="dropdown-toggle" 
+  				data-toggle="dropdown" role="button" aria-expanded="false">
+  				Dropdown <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="#">hello</a></li>		            
+		            <li class="divider"></li>
+		            <li><a href="#">world</a></li>		           
+		          </ul>
+        		</li>
+  			</ul>
+  			<form class="navbar-form navbar-left" role="search" action="show_food.php" method="get">
+        		<div class="form-group">
+          			<input type="text" class="form-control" name = "search_key" placeholder="Search food name, or category">
+        		</div>
+        		<button type="submit" class="btn btn-primary">Search</button>
+      		</form>
+      		<button type="button" class="btn btn-primary navbar-btn navbar-right">Sign in</button>
+      		<p class="navbar-text"><b>Welcome to Food Galaxy</b></p>
+  		</div>
+  	</nav>
+  	
 <?php
   if($title) {
     do_html_heading($title);
@@ -31,6 +57,8 @@ function do_html_header($title) {
 function do_html_footer() {
   // print an HTML footer
 ?>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   </body>
   </html>
 <?php
