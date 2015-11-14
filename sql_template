@@ -1,0 +1,8 @@
+$sql = "insert into review values(NULL, 
+	          							'".$_POST['type']."', 
+	          							'".$_POST['food_id']."', 
+	          							'".$_POST['author_id']."', 
+	          							'".$_POST['title']."',
+	          							'".$_POST['review_content']."',
+	          							'".$_POST['date']."'
+	         							)";

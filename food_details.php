@@ -1,12 +1,9 @@
 <?php
- require_once('food_galaxy_fns.php');
+ require_once('food_galaxy_fns.php'); 
  session_start();
  $food_id = $_GET['food_id'];
  do_html_header();
 
- if($_GET[review_content]){
- 	write_review($_GET[review_content]);
- }
  
  $food_info = get_food_details($food_id);
  display_food_details($food_info);
@@ -51,19 +48,58 @@ echo 	"<div class=\"panel panel-default\">
 
 function display_food_reviews($food_info){
 	
-	echo "<b>Reviews made by customers</b>:\n";
+	$food_id = $food_info[0]['food_id'];
 	
+	echo "<div class=\"form-group\">    			
+    			<a href=\"write_food_review.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Review</a>        			
+  		   </div>
+   	       <div class=\"form-group\">    			
+    			<a href=\"write_complant.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Complaints</a>        			
+  		   </div>";
+	
+	echo "<h3>Reviews made by customers:</h3>";
+	
+	$conn = db_connect();	
+    $query = "select * from review where type = 0 and target_id = '".$food_id."'";
+    //echo $query;
+	$result = @$conn->query($query);
+	//echo $result->num_rows;
+   	while($row = $result->fetch_assoc()){
+   		
+   		$query2 = "select name from customer where customer_id = '".$row['author_id']."'";
+   		$result2 = @$conn->query($query2);
+   		$row2 = $result2->fetch_assoc();
+   		$name = $row2['name'];
+   		
+   		
+   		echo "<div class=\"blog-post\">
+            	<h4 class=\"blog-post-title\">".$row['title']."</h2>
+            		<p class=\"blog-post-meta\">".$row['date']." by <a href=\"#\">".$name."</a></p>
+            		<p>".$row['content']."</p>            
+              </div>"; 
+   	    echo "<hr>";		
+   	}
+   	
+   	echo "<div class=\"form-group\">    			
+    			<a href=\"write_food_review.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Review</a>        			
+  		   </div>
+   	       <div class=\"form-group\">    			
+    			<a href=\"write_complant.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Complaints</a>        			
+  		   </div>";
+   /*
+          
 	echo "<hr>";
 	
-	echo "<form role=\"form\" action=\"food_details.php?food_id=".$food_info[0][food_id]."\" method=\"get\">
+	echo "<form role=\"form\" >
   			<div class=\"form-group\">
     			<label for=\"name\">Write youre reveiw:</label>
-    			<textarea class=\"form-control\" rows=\"3\" name = \"review_content\"></textarea>    			 			
+    			<textarea class=\"form-control\" rows=\"3\" id = \"review_content\"></textarea>    			 			
   			</div>
   			<div class=\"form-group\">
-    			<button type=\"submit\" class=\"btn btn-primary\">Submit</button>       			
+    			<button onclick=\"review_write(".$food_info[0]['food_id'].")\" class=\"btn btn-primary\">Submit</button>       			
   			</div>
 		</form>";
+		*/
 }
 
 function get_food_details($food_id) {
@@ -89,19 +125,58 @@ function get_food_details($food_id) {
    return $result;
 }
 
-function write_review($review_content){
-	// query database for the books in a category
-   if(!$review_content)   return false;
-  
-   $conn = db_connect();
-   
-    // if ok, put in db
-  $result = $conn->query("insert into review values(NULL, '".$username."', sha1('".$password."'), '".$email."', '".$phone."')");
-  if (!$result) {
-    throw new Exception('Could not register you in database - please try again later.');
-  }
-
-  return true;
-}
 
 ?>
+
+<script type="text/javascript">
+function review_write(food_id){
+	
+	var action = "action=getText";
+	var url = "write_food_review.php";
+    var foodid = food_id;
+    var review_content = document.getElementById("review_content").value;
+	//type = 0;  0 食物; 1 厂家
+    var author_id = 1;	
+	post = "food_id="+foodid+"&review_content="+review_content+"&type=0"+"&author_id="+author_id;
+	//alert("1");
+	//使用GET方法提交数据
+	xmlHttp.open("POST",url+"?"+action,false);
+	//发送HTTP头信息
+	xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	//发送请求,此处与GET方法不同
+	//alert("2");
+	xmlHttp.send(post);
+	//alert("3");
+	//指定回调函数
+	xmlHttp.onreadystatechange = function(){		
+		if(xmlHttp.readyState == 4){
+			//alert("3.1");			
+			var text = xmlHttp.responseText;
+			//alert("content: " + text);
+			if(text == "success"){
+				alert("success");
+			}
+			else
+				alert("text: " + text);
+			/*
+			if(text == "success"){
+				
+				var r=confirm("Press a button!");
+				if (r==true){
+				  alert("You pressed OK!");
+				}
+				els{
+				  alert("You pressed Cancel!");
+				}
+				
+				alert("success!");								
+			}
+			else
+				alert("Failed!");
+			 */
+    		//document.getElementById("show_content").innerHTML = text;
+		}				  
+	}	
+	//alert("5");	
+}
+</script>

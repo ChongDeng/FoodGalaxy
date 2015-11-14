@@ -1,4 +1,29 @@
-<?php
+<?php 
+ if(isset($_GET["action"]) and $_GET["action"]=="getText"){ 	 
+ 	/*
+ 	$res = write_food_review(); 	
+ 	if($res != false) 		
+ 		print 'success';
+ 	else 
+ 	    print 'fail';
+ 	    */
+ 	//$res = write_food_review();
+ 	$sql = "insert into review values(NULL,'".$_POST['type']."','".$_POST['food_id']."','".$_POST['author_id']."','".$_POST['title']."','".$_POST['review_content']."','".$_POST['date']."')";
+ 	 
+ 	
+ 	$res = write_food_review($sql); 
+ 	header('Content-Type:text/html;charset=GB2312');
+ 	if($res != false) 		
+ 		print 'success';
+ 	else 
+ 	    print 'fail';
+ 	
+ 	//print $sql; 
+ 	//print $_POST['type'].$_POST['food_id'].$_POST['author_id'].$_POST['title'].$_POST['review_content'].$_POST['date'];	    
+ 	exit();
+ }
+ 
+ 
 
 function get_foods_of_category($search_key) {
 	
@@ -88,5 +113,14 @@ function display_foods_of_category($food_array) {
   	}
   	echo "<hr />";
 }
+
+function write_food_review($sql){	
+	  require_once ('food_galaxy_fns.php');
+	  $conn = db_connect();
+	  
+	  $result = $conn->query($sql);
+	  if (!$result) return false;	  
+	  return true;	 
+ } 
 
 ?>

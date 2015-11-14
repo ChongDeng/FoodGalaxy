@@ -4,7 +4,7 @@
   include_once('data_valid_fns.php');
   include_once('user_auth_fns.php');
   include_once('galaxy_fns.php');
-  
+  //include_once("ajax_include_file.php");
   /*
  
   include_once('admin_fns.php');
