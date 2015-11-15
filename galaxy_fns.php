@@ -1,26 +1,17 @@
 <?php 
  if(isset($_GET["action"]) and $_GET["action"]=="getText"){ 	 
- 	/*
- 	$res = write_food_review(); 	
- 	if($res != false) 		
- 		print 'success';
- 	else 
- 	    print 'fail';
- 	    */
- 	//$res = write_food_review();
- 	$sql = "insert into review values(NULL,'".$_POST['type']."','".$_POST['food_id']."','".$_POST['author_id']."','".$_POST['title']."','".$_POST['review_content']."','".$_POST['date']."')";
- 	 
  	
- 	$res = write_food_review($sql); 
- 	header('Content-Type:text/html;charset=GB2312');
- 	if($res != false) 		
- 		print 'success';
- 	else 
- 	    print 'fail';
+ 	if(($_POST['review_content']) && ($_POST['food_id'])) { //write food review
+ 		$sql = "insert into review values(NULL,'".$_POST['type']."','".$_POST['food_id']."','".$_POST['author_id']."','".$_POST['title']."','".$_POST['review_content']."','".$_POST['date']."')";	  	
+ 		$res = write_food_review($sql); 
+ 		header('Content-Type:text/html;charset=GB2312');
+ 		if($res != false) 		
+ 			print 'success';
+ 		else 
+ 	    	print 'fail'; 	
+ 		exit();
+ 	}
  	
- 	//print $sql; 
- 	//print $_POST['type'].$_POST['food_id'].$_POST['author_id'].$_POST['title'].$_POST['review_content'].$_POST['date'];	    
- 	exit();
  }
  
  

@@ -1,4 +1,7 @@
 <?php
+
+$file = "  ";
+echo "#".trim($file)."#";
 //检查上传的临时文件是否存在
 if(isset($_FILES["file"]["tmp_name"])){
 	//定义文件存放的目录
@@ -9,6 +12,9 @@ if(isset($_FILES["file"]["tmp_name"])){
 	if(move_uploaded_file($_FILES["file"]["tmp_name"],$dir.$filename)){
 		echo "上传文件成功!";
 		echo $_FILES["file"]["tmp_name"];
+		$pre = "pre".time();
+		$filename = $pre."_".$_FILES["file"]["name"];
+		echo "<br>".$filename;
 	}else{
 		echo "上传文件失败!";		
 	}
