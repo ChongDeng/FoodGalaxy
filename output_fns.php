@@ -7,6 +7,19 @@ function do_html_header($title) {
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+    
+    <!-- 
+    <link rel="icon" href="favicon.ico">     
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="https://www.wasify.com/assets/assets/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.wasify.com/assets/assets/icons/apple-touch-icon-iphone.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.wasify.com/assets/assets/icons/apple-touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.wasify.com/assets/assets/icons/apple-touch-icon-iphone-retina-display.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="https://www.wasify.com/assets/assets/icons/apple-touch-icon-ipad-retina-display.png" />
+            -->
+    
+    
     <style>    	
     	body { padding-top: 70px; }
     	
@@ -43,10 +56,36 @@ function do_html_header($title) {
         		</div>
         		<button type="submit" class="btn btn-primary">Search</button>
       		</form>
+      		<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#login">
+  				Log in
+  			</button>
       		<button type="button" class="btn btn-primary navbar-btn navbar-right">Sign in</button>
       		<p class="navbar-text"><b>Welcome to Food Galaxy</b></p>
   		</div>
   	</nav>
+  	
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content login">
+          <img src="https://www.wasify.com/assets/images/isotipo.png" class="logo" alt="wasify">
+          <h2>Log in to FoodGalaxy</h2>
+          <form class="form-signin col-md-6 col-md-offset-3" role="form" method="post" action="login.php"> 
+            <div class="form-signin">
+              <label class="sr-only" for="email">Account email</label>
+              <input type="text" class="form-control" id="email" name="email" maxlength="50" placeholder="Account email" value="">
+              <label class="sr-only" for="pass">Password</label>
+              <input type="password" class="form-control" id="pass" name="pass" maxlength="20" placeholder="Password" value="" data-toggle="fixed-tooltip"> 
+            </div>
+                        <br>
+            <button class="btn btn-success btn-block" type="submit" name="commandLogin" value="1">Log in</button>
+            <div class="loginLinks">
+              <a href="https://manager.wasify.com/forgotten_password" rel="nofollow">Forgotten password?</a>
+              <a href="#" rel="nofollow" data-toggle="modal" data-target="#signUp">Not a client yet? Try FoodGalaxy!</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   	
 <?php
   if($title) {

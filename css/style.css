@@ -1,0 +1,2021 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'gotham';
+    src: url('https://www.wasify.com/assets/fonts/gothambook-webfont.eot');
+    src: url('https://www.wasify.com/assets/fonts/gothambook-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://www.wasify.com/assets/fonts/gothambook-webfont.woff') format('woff'),
+         url('https://www.wasify.com/assets/fonts/gothambook-webfont.ttf') format('truetype'),
+         url('https://www.wasify.com/assets/fonts/gothambook-webfont.svg#gothambookregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gotham';
+        src: url('https://www.wasify.com/assets/fonts/gothambook-webfont.svg#gothambookregular') format('svg');
+}
+
+@font-face {
+    font-family: 'gothamlight';
+    src: url('https://www.wasify.com/assets/fonts/gothamlight-webfont.eot');
+    src: url('https://www.wasify.com/assets/fonts/gothamlight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://www.wasify.com/assets/fonts/gothamlight-webfont.woff') format('woff'),
+         url('https://www.wasify.com/assets/fonts/gothamlight-webfont.ttf') format('truetype'),
+         url('https://www.wasify.com/assets/fonts/gothamlight-webfont.svg#gothamlightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gothamlight';
+        src: url('https://www.wasify.com/assets/fonts/gothamlight-webfont.svg#gothamlightregular') format('svg');
+}
+
+@font-face {
+    font-family: 'gothammedium';
+    src: url('https://www.wasify.com/assets/fonts/gothammedium-webfont.eot');
+    src: url('https://www.wasify.com/assets/fonts/gothammedium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://www.wasify.com/assets/fonts/gothammedium-webfont.woff') format('woff'),
+         url('https://www.wasify.com/assets/fonts/gothammedium-webfont.ttf') format('truetype'),
+         url('https://www.wasify.com/assets/fonts/gothammedium-webfont.svg#gothammediumregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gothammedium';
+        src: url('https://www.wasify.com/assets/fonts/gothammedium-webfont.svg#gothammediumregular') format('svg');
+}
+
+body{
+	font-family:'gotham', sans-serif;
+	font-size: 14pt;
+	position: relative;
+	height: 100%;
+}
+
+ pre {
+          tab-size: 8;
+      }
+
+h1, h2{
+	font-weight: normal !important;
+	color: #043b43;
+}
+	h2.homeH2{
+		margin-top:-10px;
+		margin-bottom:40px;
+	}
+
+h1{
+	font-size: 180%;
+	line-height: 120%;
+}
+
+
+h3{
+	color:#009c67;
+	font-family: 'gothammedium', sans-serif;
+	font-size: 16pt;
+}
+
+strong{
+	font-family: 'gothammedium', sans-serif;
+	font-weight: normal;
+}
+
+a, a:visited{color: #009c67;}
+a:hover{color:#008c72;}
+
+/*select, input{
+	font-family:Helvetica, Arial, sans-serif;
+}*/
+
+.header{
+	background: #00383e;
+	color: #fff;
+	box-sizing: border-box;
+	-webkit-box-shadow:inset 0 -5px 5px 0 rgba(0,0,0,0.2);
+	box-shadow:inset 0 -5px 5px 0 rgba(0,0,0,0.2);
+	transform-style: inherit;
+	padding-top:150px;
+}
+	.header#home {
+	  background:#003840 url(https://www.wasify.com/assets/images/header-home2.jpg)center no-repeat ;
+	  z-index:-1;
+	  padding-bottom:70px;
+	}
+		.header#home .col-md-5{
+			padding-top:60px;				
+		}
+
+		.header#home .featuresList{
+			display: block; 
+		}
+		.header#home li span.glyphicon{
+			font-size:90%;
+			color:#009c67;
+			margin-right:10px;
+		}
+
+		.header#home .col-md-5 .headerCTA{
+			margin: 15px 0 0 30px;
+		}
+		
+		
+	.header#precios {
+	  background:#00363e url(https://www.wasify.com/assets/images/header-precios.jpg) no-repeat top center fixed;
+	  z-index:-1;
+	  padding-bottom: 30px;
+	}
+	.header#precio {
+	  background:#00363e url(https://www.wasify.com/assets/images/header-precios.jpg) no-repeat top center fixed;
+	  z-index:-1;
+	  padding-bottom: 120px;
+	}
+	.header#features {
+	  background:#00363e url(https://www.wasify.com/assets/images/header-features.jpg) no-repeat top center fixed;
+	  z-index:-1;
+	  padding-bottom: 30px;
+	}
+
+	.header#faqs {
+	  background:#00363e url(https://www.wasify.com/assets/images/header-faqs.jpg) no-repeat top right fixed;
+	  z-index:-1;
+	  padding-bottom: 30px;
+	}
+	.header#contact{
+	  background:#00363e url(https://www.wasify.com/assets/images/header-contacto.jpg) no-repeat top center fixed;
+	  z-index:-1;
+	  padding-bottom: 30px;
+	}
+
+	.header#cases{
+	  background:#00363e url(https://www.wasify.com/assets/images/header-casos.jpg) no-repeat top center fixed;
+	  z-index:-1;
+	  padding-bottom: 30px;
+	}
+	.header#content{
+	  background:#00363e url(https://www.wasify.com/assets/images/header-content.jpg) no-repeat top center fixed;
+	  z-index:-1;
+	  padding-bottom: 30px;
+	}
+	
+	.header#signup{
+	  background:#00363e url(https://www.wasify.com/assets/images/header-signup.jpg) no-repeat fixed;
+	  z-index:-1;
+	  padding-top:30px;
+	  padding-bottom: 20px;
+	}
+		
+		.header#signup h1{
+			font-size:140%;
+			font-family: 'gothamlight', sans-serif;
+		}
+
+	
+	.header#signUpPage{
+	background:#00363e url(https://www.wasify.com/assets/images/signuppage-bg.jpg) no-repeat fixed;
+	-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  z-index:-1;
+	  padding-bottom: 120px;
+	  height: 100%;
+	  display: block;
+	}
+		.header#signUpPage form{
+			margin-top: 70px;
+		}
+
+		.header#signUpPage .alert-danger{
+			font-size: 12pt;
+		}
+
+	.header h1{
+		margin: 10px 0 15px 0;
+		color: #fff;
+	}
+		.header h1 small{
+			color: #fff;
+		}
+
+.header .hero{
+	margin-top: -20px;
+
+}
+	.header ul.list-unstyled li{
+		line-height:1.7;
+	}
+	.header .goDown{
+			-moz-transition: all .2s ease-in;
+		    -o-transition: all .2s ease-in;
+		    -webkit-transition: all .2s ease-in;
+		    transition: all .2s ease-in;
+		}
+		.header .goDown:hover{
+			opacity: 0.6;
+		}
+
+
+
+
+	.helpNav a{
+		font-size: 80%;
+		color: #adb3b8 !important;
+	}
+
+	.helpNav a:hover{
+		text-decoration: underline !important;
+	}
+
+
+#lateralNav .affix {
+    position: fixed;
+    top: 50px;
+	max-width:285px;
+    width: 100%;}
+
+	#lateralNav h3{
+		font-family: 'gothamlight', sans-serif;
+		color:#043b43;
+		margin-bottom: 20px;
+	}
+	#lateralNav ul li{
+		margin: 18px 0;
+		line-height:1.5;
+	}
+		#lateralNav ul li a{
+			color: #666;
+		}
+		#lateralNav ul li a:hover, #lateralNav ul li a.active {
+			color: #009c67 !important;
+			text-decoration: none !important;
+		}
+.btn.btn-success{
+	background: #00a676; /* Old browsers */
+	background: -moz-linear-gradient(top,  #00a676 1%, #00a676 23%, #008c72 99%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#00a676), color-stop(23%,#00a676), color-stop(99%,#008c72)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #00a676 1%,#00a676 23%,#008c72 99%); /* Chrome10+,Safari5.1+ */
+	background: -ms-linear-gradient(top,  #00a676 1%,#00a676 23%,#008c72 99%); /* IE10+ */
+	background: linear-gradient(to bottom,  #00a676 1%,#00a676 23%,#008c72 99%); /* W3C */
+	border-color:#008C72;
+	text-shadow:0 1px 0 #007369;
+	color:#fff !important;
+	font-size: 13pt;
+
+}
+	.btn.btn-success:hover{
+		background:#00a676;
+	}
+
+.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img{
+	display: block;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	height: auto;
+}
+.img-rounded{
+	border: 6px solid #f2f2f2;
+	border-radius: 4px;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	margin: 20px 0;
+}
+
+.img-circle{
+	border: 6px solid #f2f2f2;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+
+.free{
+	color: #00a676;
+	font-family: 'gothammedium', sans-serif;
+	padding: 2px 10px 3px 10px;
+	margin: 10px 0;
+	border: 2px solid  #00a676;
+	border-radius: 4px;
+}
+	.stepwizard .free{
+		color: #999;
+		border: 1px solid #999;
+		font-family: 'gotham';
+	}
+
+.form-signin #email, .form-signin #user{
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-signin #password, .modal-content.signUp .form-signin #correo{
+	margin-bottom: 10px;
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+}
+
+.form-control:focus {
+  border-color: #ccc;
+  -webkit-box-shadow: inset 0 2px 8px rgba(199,223,230,.65);
+          box-shadow: inset 0 2px 8px rgba(199,223,230,.65);
+}
+
+.has-warning .form-control:focus {
+border-color: #c50000;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #f2dede;
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #f2dede;
+}
+
+.form-group.validation .glyphicon{
+	font-size: 150%;
+	margin-left: 40px;
+	margin-top: 8px;
+}
+	.form-group.validation .glyphicon.glyphicon-ok{
+		color: #009c67;
+	}
+
+label{
+	font-weight: normal;
+	font-family: 'gothammedium', sans-serif;
+	font-size: 10pt !important;
+}
+
+
+.alert.alert-danger{
+	background-color: rgba(255, 107, 107, 0.2);
+	border-color:#e8b1b1;
+	color: #B83232;
+}
+
+.alert-info {
+	background-color: #e9f3f5;
+	border-color: #c7dfe6;
+	color: #082550;
+}
+
+.signUpSuccess .alert-success .glyphicon-ok{
+	font-size: 180%;
+	margin-bottom: 30px;
+}
+
+.panel .alert{
+	font-size: 13px;
+}
+
+.has-warning .help-block, .has-warning .control-label, .has-warning .radio, .has-warning .checkbox, .has-warning .radio-inline, .has-warning .checkbox-inline {
+color: #c50000;
+}
+.has-warning .form-control{
+	border-color: #c50000;
+}
+
+.control-warning{
+	display: none;
+}
+.has-warning .control-warning{
+	font-size: 10pt;
+	color: #c50000;
+	display: block;
+}
+
+.langSelector{
+	margin-top: 5px;
+}
+	.langSelector .btn-info, .langSelector .btn-info:hover{
+		background-color: rgba(0,0,0,0.4) !important;
+		border: none;
+		padding: 0 7px !important;
+		height: 20px;
+	}
+	
+	.langSelector .dropdown-menu{
+		background-color: rgba(0,0,0,0.85);
+		z-index: 99999999;
+	}
+	.langSelector .dropdown-menu>li>a{
+		font-size: 100%;
+		color: #ddd;
+	}
+
+	.langSelector .dropdown-menu>li>a:hover{
+		color: #fff !important;
+		text-decoration: none !important;
+	}
+	
+
+.signUpWrap .text-success{
+	margin-bottom:40px;
+}
+.steps{
+	margin-bottom:60px;
+}
+
+.stepwizard-step p {
+    margin-top: 10px;
+	color:#666;   
+}
+
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;     
+    width: 100%;
+    position: relative;
+	margin:0 0 40px 0;
+}
+
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+    top: 16px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 2px;
+    background-color: #f2f2f2;
+    z-order: 0;
+    
+}
+
+.stepwizard-step {    
+    display: table-cell;
+    text-align: center;
+    position: relative;
+	width: 50%;
+}
+
+.step-circle {
+  width: 38px;
+  height: 38px;
+  text-align: center;
+  padding: 5px 0;
+  line-height: 1.428571429;
+  font-family: 'gothammedium', sans-serif;
+  border-radius: 50%;
+  border:2px solid #f2f2f2;
+  color:#999;
+  font-size:13pt;
+}	
+	.stepwizard .btn.btn-success{
+		background:#fff;
+		border:2px solid #009c67;
+		color: #009c67 !important;
+		text-shadow:none;
+		cursor: default;
+	}
+	
+	.stepwizard .btn.btn-done{
+		background: #00a676;
+		background: -moz-linear-gradient(top, #00a676 1%, #00a676 23%, #008c72 99%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#00a676), color-stop(23%,#00a676), color-stop(99%,#008c72));
+		background: -webkit-linear-gradient(top, #00a676 1%,#00a676 23%,#008c72 99%);
+		background: -ms-linear-gradient(top, #00a676 1%,#00a676 23%,#008c72 99%);
+		background: linear-gradient(to bottom, #00a676 1%,#00a676 23%,#008c72 99%);
+		border: 1px solid #008C72;
+		text-shadow: 0 1px 0 #007369;
+		color: #fff !important;
+		cursor: default;
+		padding-top:8px;
+	}
+	.stepwizard .btn.btn-default{
+		cursor: default;
+		color:#ccc;
+	}
+	.stepwizard .btn.btn-default:hover{
+		background:#fff;
+		color:#ccc;
+		border-color:#f2f2f2;
+	}
+
+.
+
+.pagoEnvio{
+	margin-top:-60px;
+}
+
+form#signUpForm{
+	margin:30px 0 70px 0;
+}
+	form#signUpForm .form-control{
+		margin-bottom:30px;
+	}
+	form#signUpForm #countries{
+		max-width:250px;
+	}
+	form#signUpForm .btn-lg{
+		margin-top:-10px;
+	}
+
+	form#signUpForm .has-warning .control-label{
+		position: absolute;
+		top: -20px;
+	}
+	form#signUpForm .col-sm-2.info{
+		line-height: 34px;
+	}
+
+p.formTitle{
+	margin-bottom: 45px;
+	display: block;
+}	
+
+.panel-group .panel-body{
+	padding: 30px 25px !important;
+}
+
+.panel-group .panel-title .disabled{
+	color: #999;
+	cursor: not-allowed;
+}
+
+.panel .panel-title a{
+	color: #333;
+}
+
+.modal-content{
+	box-shadow: none;
+	-webkit-box-shadow:none;
+}
+	.modal-dialog{
+		width: 800px;
+	}
+	.modal-content.login, .modal-content.signUp{
+		overflow: hidden;
+		text-align: center;
+		font-size: 11pt;
+		color: #fff;
+		padding: 60px 15px 30px 15px;
+	}
+		.modal-content.login{
+			background: #00383e url(https://www.wasify.com/assets/images/login-bg.jpg) no-repeat top center;
+		}
+		.modal-content.signUp{
+			background: #00383e url(https://www.wasify.com/assets/images/signup-bg.jpg) no-repeat top center;
+		}
+
+			.modal-content .logo,{
+			margin-bottom: 30px;
+		}
+
+		.modal-content.login h2{
+			font-family: 'gothamlight', sans-serif;
+			margin-bottom: 30px;
+			color: #fff;
+			font-size: 150%;
+		}
+
+		.modal-content.signUp h2{
+			font-family: 'gothamlight', sans-serif;
+			margin: 50px 0 10px 0;
+			color: #fff;
+			font-size: 190%;
+		}
+			.modal-content.signUp h2 small{
+				color: #fff;
+			}
+
+			h1 s, h2 s{
+				opacity: 0.5;
+			}
+
+			.modal-content.signUp .moneyBackTitle{
+				width:85%;
+				height:40px;
+				margin:0 auto;
+				display: block;
+				margin-top:15px;
+				margin-bottom: 40px;
+				font-size: 120%;
+				color: #cccccc;
+			}
+				.moneyBackTitle span.icon{
+					height:40px;
+					width:40px;
+					margin-right:10px;
+				}
+			.modal-content.signUp .legalNote, .signUpPageWrap .legalNote {
+				color: #999;
+				font-size: 90%;
+				clear: both;
+				margin-top: 15px;
+				font-weight: normal;
+			}
+				.signUpPageWrap .legalNote {
+					font-size: 70%;
+					margin-top: 30px;
+				}
+
+		.modal-content.login label, .modal-content.signUp label{
+			font-weight: normal;
+			color: #ccc;
+		}
+			.modal-content.signUp label{
+				margin-top: 30px;
+				font-size: 10pt;
+			}
+
+			.modal-content.signUp label.checkbox a{
+				color: #ccc;
+				text-decoration: underline;
+			}
+
+		.modal-content.login .form-signin #password, .modal-content.signUp .form-signin #correo{
+			margin-bottom: 30px;
+		}
+
+		
+		.modal-content.login .alert.alert-danger,.modal-content.signUp .alert.alert-danger, #signUpPage.header .alert.alert-danger, .signUpPageWrap .alert.alert-danger, .loginPageWrap .alert.alert-danger{
+			text-align: center;
+			background-color: rgba(255, 107, 107, 0.7);
+			border: none;
+			color: #fff;
+			text-shadow: 0 1px 0 #B83232;
+			padding: 5px 10px;
+		}
+		
+		.modal-content.login .alert.alert-success,.modal-content.signUp .alert.alert-success, #signUpPage.header .alert.alert-success, .signUpPageWrap .alert.alert-success, .loginPageWrap .alert.alert-success{
+			text-align: center;
+			font-size:130%;
+			background:none;
+			color:#8fc5aa;
+			border: none;
+			padding: 25px 0;
+		}
+			.modal-content.login .alert.alert-success .glyphicon.glyphicon-ok, .modal-content.signUp .alert.alert-success .glyphicon.glyphicon-ok{
+				font-size: 180%;
+				display:block;
+				margin-bottom:25px;
+			}
+	
+			.prueba .alert {
+				text-align: center;
+				padding: 5px 10px;
+				margin-bottom: 15px;
+				font-size: 12pt;
+			}
+
+			.prueba form{
+				margin-bottom: 0;
+			}
+
+.prueba .legalNote{
+	font-size: 70%;
+	margin-top: 15px;
+	color: #777;
+}
+
+		.loginLinks{
+			margin-top: 40px;
+			display: block;
+			clear: both;
+		}
+			.loginLinks a{
+				font-family: 'gothammedium', sans-serif;
+				display: block;
+				margin-bottom: 10px;
+				-moz-transition: all .2s ease-in;
+			    -o-transition: all .2s ease-in;
+			    -webkit-transition: all .2s ease-in;
+			    transition: all .2s ease-in;
+			}
+
+			.loginLinks a:hover{
+				text-decoration: none;
+				color: #fff;
+			}
+
+	.modal-backdrop.fade {
+		opacity: 0;
+		filter: alpha(opacity=0);
+		}
+		.modal-backdrop.in {
+			background: #ccc;
+			opacity: 0.8;
+			filter: alpha(opacity=80);
+		}
+
+form.contactForm .checkbox input[type=checkbox]{
+	margin-left: 0;
+	margin-top: 8px;
+}
+.contactInfo .contactLogo{
+	display: block;
+	margin-bottom: 20px;
+	}
+
+	.contactInfo address{
+		line-height: 200%;
+		font-size: 10pt;
+	}
+
+.prueba{
+	width: 100%;
+	background-color: #f2f2f2;
+	padding: 30px 0;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}	
+
+	.prueba h2{
+		font-family:'gothamlight', sans-serif;
+		font-size: 130%;
+		margin: 0 0 20px 0;
+	}
+
+	.prueba .form-control, #signUp .form-control{
+		margin-bottom: 10px;
+		font-size: 10pt;
+		height: 38px;
+	}
+
+
+#featuresHeader{
+	width: 100%;
+	padding-top: 40px;
+	background: rgba(255,255,255,1);
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(235,244,238,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(42%, rgba(255,255,255,1)), color-stop(100%, rgba(235,244,238,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(235,244,238,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(235,244,238,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(235,244,238,1) 100%);
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(235,244,238,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ebf4ee', GradientType=0 );
+	border-bottom: 1px solid #cae2d5;
+}	
+	#featuresHeader .heading{
+		font-size: 12pt;
+		margin-bottom: 20px;
+	}
+
+.featuresHero .info{
+	margin-top: 100px;
+	font-size: 80%;
+}
+
+	.featuresHero .heroRight,.featuresHero .heroLeft{
+		 -webkit-animation-duration: 1s; 
+		animation-duration: 1s; 
+		-webkit-animation-fill-mode: both; 
+		animation-fill-mode: both; 
+		-webkit-animation-timing-function: ease-in; 
+		animation-timing-function: ease-in; 
+	}
+
+.gallery{
+	border-bottom: 1px solid #f2f2f2;
+	padding:50px 0;
+
+}
+
+.headingGallery{
+	margin-bottom:40px;
+}
+
+.gallery .thumbnail {
+    position:relative;
+    overflow:hidden;
+	border:4px solid #f2f2f2;
+}
+ 
+.gallery .caption {
+    position:absolute;
+    top:0%;
+    right:0;
+    background:rgba(0, 166, 118, 0.85);
+    width:100%;
+    height:100%;
+    padding:20% 15px;
+    text-align:center;
+    color:#fff !important;
+	font-family:'gothammedium',sans-serif;
+    z-index:2;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+	opacity:0;
+}
+
+.gallery .thumbnail img{
+-webkit-transform: scale(1.6);
+  -moz-transform: scale(1.6);
+  -o-transform: scale(1.6);
+  -ms-transform: scale(1.6);
+  transform: scale(1.6);
+}
+
+
+.gallery .thumbnail:hover .caption {
+    opacity:1;
+}
+
+
+#lightboxModal .modal-dialog{
+	width:1050px !important;	
+}
+	#lightboxModal .modal-dialog .thumbnail{
+		border:none !important;
+		margin-bottom: 0 !important;
+		
+	}
+	#lightboxModal .modal-dialog .caption{
+		display:none;
+	}
+	#lightboxModal .modal-dialog img{
+		-webkit-transform: none;
+	  -moz-transform: none;
+	  -o-transform: none;
+	  -ms-transform: none;
+	  transform: none;
+	}
+
+.container#main{
+	padding: 50px 15px;
+}	
+	.container#home h2{
+		margin-bottom:50px;
+	}
+
+
+
+.row.content{
+	font-size: 12pt;
+}
+	.row.content img.fullWidth{
+		margin: 30px 0;
+	}
+	.row.content img.pull-right{
+		margin: 10px 0 10px 25px;
+	}
+	.row.content img.pull-left{
+		margin: 10px 25px 10px 0;
+	}
+
+.row.feature{
+	margin-bottom: 30px;
+	padding: 30px 0;
+	border-bottom: 1px solid #f2f2f2;
+	display:table;
+}
+	.row.feature.last{
+		border:none;
+	}
+
+	.row.feature.ipad{
+		background: url(https://www.wasify.com/assets/images/ipad.jpg) no-repeat bottom left;
+	}
+		.row.feature.ipad .col-sm-6{
+			padding: 15px;
+			background: rgba(255,255,255,0.8);
+		}
+
+.featuresGrid{
+	margin: 30px 0;
+	text-align: center;
+}
+
+	.featuresGrid h3{
+		margin-bottom: 20px;
+	}
+
+	.featuresGrid img{
+		display: block;
+		margin: 0 auto;
+	}
+
+
+	.featuresList h3{
+		margin: 0 0 30px 60px;
+	}
+	.featuresList li {
+		padding: 0px 0 25px 0;
+	}
+	
+	.featuresList li span{
+		background: url(https://www.wasify.com/assets/images/sp-iconfeatures.png) no-repeat;
+		display: block;
+		float: left;
+		width: 45px;
+		height: 50px;
+		margin-right: 15px;
+		clear: both;
+	}
+
+		.featuresList li span.efficient{
+			background-position: 0 7px;
+		}
+		.featuresList li span.saving{
+			background-position: 0 -65px;
+		}
+		.featuresList li span.multiagent{
+			background-position: 0 -125px;
+		}
+		.featuresList li span.stats{
+			background-position: 0 -198px;
+		}
+		.featuresList li span.secure{
+			background-position: 0 -263px;
+		}
+		.featuresList li span.mobile{
+			background-position: 0 -320px;
+		}
+		.featuresList li span.planet{
+			background-position: 0 -385px;
+		}
+		.featuresList li span.attachment{
+			background-position: 0 -445px;
+		}
+		.featuresList li span.dashboard{
+			background-position: 0 -520px;
+		}
+		.featuresList li span.reply{
+			background-position: 0 -570px;
+		}
+		.featuresList li span.star{
+			background-position: 0 -645px;
+		}
+		.featuresList li span.wasify{
+			background-position: 0 -710px;
+		}
+		.featuresList li span.pc{
+			background-position: 0 -770px;
+		}
+
+
+.watch{
+	-moz-transition: all .2s ease-in;
+	-o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+	.watch:hover{
+		opacity: 0.8;
+	}
+
+.faqs{
+	font-size: 12pt;
+}
+	
+	.faqs .faqGroup{
+		padding-bottom: 20px;
+		border-bottom: 1px solid #f2f2f2;
+	}
+	.faqs h3{
+		margin-top: 40px;
+	}
+
+#testimonials{
+	background: #050505 url(https://www.wasify.com/assets/images/testimonial-bg.jpg) no-repeat fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	z-index:-1;;
+	color: #fff;
+	padding: 40px 0;
+	/*text-shadow: 0 1px 5px #000;*/
+}
+
+	#testimonials h2{
+		color: #fff;
+		font-family: 'gothamlight', sans-serif;
+		margin-bottom:40px;
+	}
+
+	blockquote{
+		font-size: 12pt;
+		border:none;
+	}
+	
+	blockquote .item{
+		margin: 40px 0 30px 0;
+	}
+
+	/*blockquote img{
+		filter: url(filters.svg#grayscale); 
+    	filter: gray; 
+    	-webkit-filter: grayscale(1); 
+    	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); 
+    	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  		filter: alpha(opacity=60);
+  		-moz-opacity: 0.6;
+  		-khtml-opacity: 0.6;
+  		opacity: 0.6;
+	}
+
+	blockquote img:hover{
+		filter: none;
+    	-webkit-filter: grayscale(0);
+    	-moz-transition: all .2s ease-in;
+	    -o-transition: all .2s ease-in;
+	    -webkit-transition: all .2s ease-in;
+	    transition: all .2s ease-in;
+	    filter: alpha(opacity=100);
+  		-moz-opacity: 1;
+  		-khtml-opacity: 1;
+  		opacity: 1;
+	}*/
+
+	blockquote .img-circle{
+		border:3px solid #fff;
+	}
+	blockquote .quoteName{
+		font-weight: bold;
+		display: block;
+		margin: 10px 0;
+	}
+
+	blockquote a, blockquote a:visited{
+		color: #aaa;
+		-moz-transition: all .2s ease-in;
+	    -o-transition: all .2s ease-in;
+	    -webkit-transition: all .2s ease-in;
+	    transition: all .2s ease-in;
+	}
+
+	blockquote a:hover{
+		color: #ddd;
+		text-decoration: none;
+	}
+	
+	.carousel-indicators{
+		padding-top:40px !important;
+		bottom: 0;
+	}
+
+	/* End carousel */
+
+	.item blockquote {
+	    border-left: none; 
+	    margin: 0;
+	}
+
+	.item blockquote img {
+	    margin-bottom: 10px;
+	}
+
+.logoGrid{
+	border-top:1px solid #66757d;
+	padding-top: 30px;
+}
+
+	.logoGrid img{
+		margin: 0 auto;
+		margin: 10px 0;
+		opacity: 0.7;
+		-moz-transition: all .2s ease-in;
+	    -o-transition: all .2s ease-in;
+	    -webkit-transition: all .2s ease-in;
+	    transition: all .2s ease-in;
+	}
+
+	.logoGrid img:hover{
+		opacity: 1;
+	}
+
+.row.pricingTable{
+	margin-bottom:60px ;
+    -webkit-animation-duration: 0.4s; 
+    animation-duration: 0.4s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+    -webkit-animation-timing-function: ease-in; 
+    animation-timing-function: ease-in; 
+}
+
+.pricingTable .plan {
+	  border-radius: 6px;
+	  border:1px solid #ddd;
+	  list-style: none;
+	  padding: 0 0 20px;
+	  margin-top:-120px;
+	  background: #f9f9f9;
+	  text-align: center;
+	  font-size: 14pt !important;
+	  line-height: 150%;
+  	-webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:    0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+	box-shadow:         0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+		  
+.pricingTable .plan li {
+  padding: 10px 15px;
+  color: #333;
+  border-top: 1px solid #ddd;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+.pricingTable .plan li.first {
+  border-top: 0;
+}
+.pricingTable .plan li.plan-name {
+  border-radius: 6px 6px 0 0;
+  padding: 15px;
+  line-height: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+  border-top: 0;
+}
+	.pricingTable .plan li.plan-name#basic{
+		background-color: #587c7e;
+	}
+		.pricingTable .plan li.plan-name#basic:hover{
+		background-color: #466365;
+		}
+	.pricingTable .plan li.plan-name#pro{
+		background-color: #00a676;
+	}
+		.pricingTable .plan li.plan-name#pro:hover{
+		background-color: #008c72;
+		}
+	.pricingTable .plan li.plan-name#premium{
+		background-color: #495e66;
+	}
+		.pricingTable .plan li.plan-name#premium:hover{
+			background-color: #3a4b52;
+		}
+	.pricingTable .plan li.plan-name#unic{
+		background: rgba(255,255,255,1);
+		background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(235,244,238,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(42%, rgba(255,255,255,1)), color-stop(100%, rgba(235,244,238,1)));
+		background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(235,244,238,1) 100%);
+		background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(235,244,238,1) 100%);
+		background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(235,244,238,1) 100%);
+		background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 42%, rgba(235,244,238,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ebf4ee', GradientType=0 );
+		color:#00a676;
+		border-bottom: 1px solid #cae2d5;
+	}
+
+		.pricingTable .plan li.plan-name#unic .price-circle{
+			width: 120px;
+			padding: 42px 5px;
+			height: 120px;
+			border-radius: 50%;
+			border:3px solid #00a676;
+		}
+		
+		.pricingTable .plan li.plan-name#unic .price-circle .price{
+			font-size: 50px;
+		}
+		.pricingTable .plan li.plan-name#unic .price-circle .currency{
+			font-size: 20px;
+		}
+		.pricingTable .plan li.plan-name#unic .price-circle .month{
+			margin-top:-2px;
+			font-family: 'gothammedium', sans-serif; 
+		}
+		.pricingTable .plan li.plan-name#unic .trialPeriod{
+			color:#043b43;
+		}
+		
+		.moneyBack{
+			position: absolute;
+			top: -120px;
+			right: 15px;
+		}
+		
+.pricingTable .plan li.plan-name .name{
+	display: block;
+	margin-bottom: 10px;
+	font-family: 'gothamlight', sans-serif; 
+  	text-transform: uppercase;
+  	font-size: 20px;
+}
+.pricingTable .plan li.plan-name .price-circle{
+	display: block;
+	margin: 0 auto;
+	width: 80px;
+	padding: 20px 5px;
+	height: 80px;
+	text-align: center;
+	border-radius: 50px;
+	border:2px solid #fff;
+}
+	.pricingTable .plan li.plan-name .price-circle .price{
+		font-size: 30px;
+		font-family: 'gothamlight', sans-serif; 
+	}
+	.pricingTable .plan li.plan-name .price-circle .month{
+		display: block;
+		margin-top: -4px;
+		font-size: 11pt; 
+	}
+
+.pricingTable .plan li.plan-name .trialPeriod{
+	display: block;
+	margin-top: 10px;
+	font-size: 12pt !important;
+}
+.pricingTable .plan li.plan-action {
+  margin-top: 10px;
+  border-top: 0;
+}
+.pricingTable .plan.featured {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.pricingTable span.glyphicon-info-sign{
+	font-size:80%;
+	color:#999;
+}
+
+.tooltip-inner {
+	  font-size:11pt;
+	  padding: 8px 12px;
+	  text-align: left;
+	  max-width: 350px;
+      width: 350px; 
+	}
+
+.conditions{
+	padding: 8px 15px;
+	text-align: center;
+	color: #999;
+	font-size: 11pt;
+	border-radius: 4px;
+	border:1px solid #f2f2f2;
+}
+
+.casos{
+	font-size: 12pt;
+}
+	.casos .caso{
+		padding: 40px 0;
+		border-bottom: 1px solid #f2f2f2;
+	}
+
+	.casos .casoLogo{
+			height: 80px;
+	}
+	.casos .casoLogo img{
+		width: 140px;
+		margin: 0 auto;
+		-moz-transition: all .2s ease-in;
+		-o-transition: all .2s ease-in;
+		-webkit-transition: all .2s ease-in;
+		transition: all .2s ease-in;
+	}
+
+	.casos .casoLogo img:hover{
+		opacity: 0.8;
+	}
+
+	.casos h3{
+		font-family: 'gothammedium', sans-serif;
+		color: #043b43;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+.readyPayment{
+	margin:40px 0;
+	font-family: 'gothamlight', sans-serif;
+	font-size:115%;
+	color:#043b43;
+}
+	.readyPayment .glyphicon-credit-card{
+		font-size:400%;
+		color: #ebf4ee;
+	}
+	
+
+.row.quote{
+	margin-top: 30px;
+	color: #00383e;
+}
+	.row.quote .img-circle{
+		border: 3px solid #f2f2f2;
+		-webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.4);
+		-moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.4);
+		box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.4);
+	}
+
+#footer{
+	background: #003840;
+	padding: 30px 0;
+	color: #66757d;
+	font-size: 12pt;
+}
+#footer.fixedBottom{
+	width:100%;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+	#footer .footerLogo{
+		display: block;
+		margin:40px 0;
+		-moz-transition: all .2s ease-in;
+	    -o-transition: all .2s ease-in;
+	    -webkit-transition: all .2s ease-in;
+	    transition: all .2s ease-in;
+		opacity: 0.3;
+	}
+
+	#footer .footerLogo:hover{
+		opacity: 0.8;
+	}
+
+
+	#footer li{
+		margin-bottom: 10px;
+	}
+
+	#footer a{
+		color: #adb3b8;
+		-moz-transition: all .2s ease-in;
+	    -o-transition: all .2s ease-in;
+	    -webkit-transition: all .2s ease-in;
+	    transition: all .2s ease-in;
+	}
+	#footer a:hover{
+		text-decoration: none;
+		color: #fff;
+	}
+
+	#footer .socialMedia{
+		margin-top: 30px;
+	}
+
+	#footer .socialMedia li{
+		display: inline;
+		margin-left: 20px;
+	}
+
+	#footer .socialMedia li img{
+		-moz-transition: all .2s ease-in;
+	    -o-transition: all .2s ease-in;
+	    -webkit-transition: all .2s ease-in;
+	    transition: all .2s ease-in;
+		opacity: 0.6;
+	}
+
+	#footer .socialMedia li img:hover{
+		opacity: 1;
+	}
+	#footer #wDisclaimer {
+		width:50%;
+		font-size:10pt;
+		float:right;
+		color: #66757d;
+	}
+
+#top-link-block.affix-top {
+    position: absolute; /* allows it to "slide" up into view */
+    bottom: -82px;
+    left: 10px;
+}
+
+.hideme{
+	opacity:0;
+}
+
+.circle{
+}
+
+.circle strong{
+	position: absolute;
+	top:30%;
+	left: 38%;
+	font-size: 200%;
+	font-family:'gothamlight', sans-serif;
+}
+
+/*Singup page*/
+.signUpPageWrap{
+	background: #00383e url(https://www.wasify.com/assets/images/signuppage-bg.jpg) no-repeat top right fixed;
+	-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	width: 100%;
+	height: 100%;
+	color: #fff !important;
+	position: fixed;
+}
+
+.signUpPageWrap .navbar-default, .loginPageWrap .navbar-default{
+	border:none !important;
+}
+
+.signUpPageWrap form{
+	margin-top: 80px;
+	clear: both;
+}
+
+.loginPageWrap form{
+	margin-top: 0px;
+	clear: both;
+}
+.signUpPageWrap .input-lg, .loginPageWrap .input-lg{
+	font-size: 80%;
+}
+
+/*.signUpPageWrap a, .loginPageWrap a{
+	color:#999;
+}*/
+
+.signUpPageWrap .header, .loginPageWrap .header{
+	background: none;
+	box-sizing: none; 
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	transform-style: none;
+}
+.signUpPageWrap .navbar ul.navbar-main, .loginPageWrap .navbar ul.navbar-main {
+	margin-top: -45px !important;
+}
+
+.signUpPageWrap h1, .signUpPageWrap h2, .loginPageWrap h1, .loginPageWrap h2{
+		color: #fff !important;
+		font-family: 'gothamlight';
+	}
+	.signUpPageWrap h1{
+		margin-top: 60px;
+		font-size: 250%;
+		margin-bottom: 40px;
+	}
+		.loginPageWrap h1 {
+			margin-top: 0px;
+			font-size: 250%;
+			margin-bottom: 20px;
+		}
+
+		.signUpPageWrap h1 small, .loginPageWrap h1 small{
+			color:#fff;
+		}
+	.signUpPageWrap h2, .loginPageWrap h2{
+		font-size: 200%;
+		margin-top: 0;
+		margin-bottom: 40px;
+	}
+	.signUpPageWrap p.moneyBackTitle{
+		display: block;
+		margin-bottom: 40px;
+		font-size: 130%;
+  		color: #cccccc;
+	}
+
+	.signUpPageWrap .navbar-brand, .loginPageWrap .navbar-brand{
+		float: none;
+	}
+
+	.container#signUpPage{
+		padding: 25px 15px;
+	}
+
+
+.loginPageWrap{
+	background: #00383e url(https://www.wasify.com/assets/images/loginpage-bg.jpg) no-repeat top right fixed;
+	-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	width: 100%;
+	height: 100%;
+	color: #fff !important;
+	position: fixed;
+}
+
+/*404 page*/
+.notFoundWrap{
+	background: #00383e url(https://www.wasify.com/assets/images/notfound-bg.jpg) no-repeat top center fixed;
+	-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	width: 100%;
+	height: 100%;
+	color: #fff !important;
+}
+	.notFoundWrap h1, .notFoundWrap h2{
+		color: #fff !important;
+	}
+	.notFoundWrap h1{
+		margin-top: 80px;
+		font-size: 400%;
+	}
+	.notFoundWrap h2{
+		font-size: 300%;
+		margin-top: 0;
+		margin-bottom: 40px;
+	}
+	.notFoundWrap .navbar-brand{
+		float: none;
+	}
+
+	.notFoundWrap #footer, .signUpPageWrap #footer, .loginPageWrap #footer{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		background: none;
+		color: #ddd;
+	}
+
+		.signUpPageWrap #footer ul li, .loginPageWrap #footer ul li, .lightFooter ul li{
+			display: inline;
+			padding: 0 0 0 20px; 
+		}
+
+
+		.signUpPageWrap #wDisclaimer, .loginPageWrap #wDisclaimer, #footer.lightFooter #wDisclaimer{
+			float: none !important;
+			width: auto !important;
+			text-align: right;
+		}
+	.container#notFound{
+		padding: 8% 15px;
+	}
+
+#promo-banner{
+	margin-top: -216px;
+	margin-bottom:30px;
+}
+
+#cookieAlert{
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	padding: 10px;
+	background-color: #f5f5f5;
+	font-size: 10pt;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+	filter: alpha(opacity=90);
+	-moz-opacity: 0.90;
+	-khtml-opacity: 0.90;
+	opacity: 0.90;
+}
+
+#cookieAlert a{
+	color:#009c67;
+	-moz-transition: none;
+	-o-transition: none;
+	-webkit-transition: none;
+	transition: none;
+}
+	#cookieAlert a:hover{
+	color:#009c67;
+	text-decoration: underline;
+}
+
+#cookieAlert a.btn-success{
+	font-size: 11pt;
+}
+#cookieAlert a.btn-success:hover{
+	text-decoration: none;
+}
+
+@media(min-width: 1200px) {
+	.header#home h1{
+			margin-left:25px;
+		}
+}
+
+@media(min-width: 991px) and (max-width: 1199px) {
+	.header h1{font-size: 140%;}
+	.header p{font-size: 90%;}
+	.header#home{padding-bottom: 50px;}
+	.loginPageWrap .container#main{
+		padding: 0 15px;
+	}
+	.featuresList li span {
+		background: url(https://www.wasify.com/assets/images/sp-iconfeatures.png) no-repeat;
+		display: block;
+		float: left;
+		width: 45px;
+		height: 60px;
+		margin-right: 15px;
+		clear: both;
+		}
+
+	.header#home .col-md-5{
+		padding-top: 50px;
+	}	
+
+	.header#home .col-md-5 .headerCTA{
+			margin-left: 0;
+		}
+
+}
+
+@media(max-width: 991px) {
+	.header .hero{
+		margin-top:30px;
+	}
+	
+	.header#home {
+	  background:#001f24 url(https://www.wasify.com/assets/images/header-home2.jpg) no-repeat  bottom left ;
+	  z-index:-1;
+	  padding-bottom:40px;
+	}
+		.header#home .col-md-5{
+			padding-top:25px;
+		}
+		.header#home h1{
+			margin-left:0;
+		}
+	
+	.header#home .col-md-5 .headerCTA{
+			margin-left: 0;
+		}
+		
+	.navbar{
+		min-height: 100px;
+		background: url(https://www.wasify.com/assets/images/nav-bg-s.png) repeat-x;
+	}
+	.navbar.small{
+		min-height:60px;
+	}
+	
+
+	body{font-size: 12pt;}
+
+	.header{
+	text-align: center !important;
+}
+
+.header .hero{
+	padding: 0 5%;
+}
+.goDown img{
+	display: block;
+	margin: 0 auto;
+}
+
+}
+
+
+@media(min-width: 766px) and (max-width: 991px) {
+	.nav>li>a {
+	padding: 5px 8px 7px 8px;
+	font-size: 11pt;
+	}
+
+}
+
+
+@media (min-width: 766px) { 
+    #quote-carousel 
+    {
+      margin-bottom: 0;
+      padding: 0 40px 30px 40px;
+    }
+    
+	
+	.featuresList, .featureImage{
+		display:table-cell;
+		vertical-align:middle;
+		float:none;
+	}
+	
+}
+
+@media (max-width: 766px) { 
+    
+    
+    .navbar.large{
+    background: url(https://www.wasify.com/assets/images/nav-bg.png) repeat-x;
+}
+
+    .signUpPageWrap, .loginPageWrap{
+    	position: relative;
+    	height: auto;
+    }
+    	.signUpPageWrap form, .loginPageWrap form{
+    		margin-top: 20px;
+    	}
+    		.loginPageWrap form{
+    			margin-top: 0;
+    		}
+
+    	.signUpPageWrap .try.visible-xs, .loginPageWrap .try.visible-xs{
+    		margin-top:50px;
+    	}
+
+    	.signUpPageWrap .container#main, .loginPageWrap .container#main{
+    		padding: 0 15px;
+    	}
+    	.signUpPageWrap #footer, .loginPageWrap #footer{
+    		position: relative;
+    		text-align: center !important;
+    	}
+    	.signUpPageWrap #footer ul li a, .loginPageWrap #footer ul li a{
+    		text-align: center ;
+    	}
+    	
+    	.signUpPageWrap .navbar-brand img, .loginPageWrap .navbar-brand img{
+    		margin-left: 15px;
+			margin-top: -15px;
+    	}
+
+
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form{
+    	border:none;
+    }
+
+	.hideme{
+		opacity:1;
+	}
+    .navbar-collapse{
+    	background: #043b43;
+    	border: none;
+    }
+    	.navbar-collapse .nav>li{
+    		padding:4px 0;
+    	}
+
+	.navbar-toggle{
+		margin-top:10px;
+	}
+    .navbar-brand{
+		margin-top:0;
+    	padding-left: 25px;
+    }
+		.navbar-brand img{
+			height:35px;
+		}
+	
+    .navbar ul.navbar-main{
+    	margin: 10px 10px;
+    }
+
+	.navbar.small ul.navbar-main{
+			margin-top:0px;
+		}
+		.navbar.small ul.helpNav{
+			display:inline
+		}
+		.navbar.small .navbar-brand{
+			margin-top:15px;
+			padding-left: 25px;
+		}
+	
+	.header{
+		padding-top:100px;
+	}
+	h2.homeH2{
+		margin-bottom:0;
+	}
+	
+    .row.feature{
+    	padding: 15px 0;
+    	text-align: center !important;
+    }
+
+    .row.feature img{
+    	margin: 0 auto !important;
+    	padding: 30px;
+    }
+
+    .row.feature img.img-rounded{
+    	padding: 0;
+    }
+
+    .row.feature .pull-right{
+    	float: none !important;
+    }
+
+	.row.feature.ipad{
+		padding-bottom: 250px;
+	}
+
+    .row.feature .featuresList li{
+    	font-size: 12pt;
+    }
+	#quote-carousel .item{
+		margin:0;
+	}
+    #quote-carousel .carousel-indicators {
+        bottom: -20px !important;  
+    }
+    #quote-carousel .carousel-indicators li {
+        display: inline-block;
+        margin: 0px 5px;
+        width: 15px;
+        height: 15px;
+    }
+    #quote-carousel .carousel-indicators li.active {
+        margin: 0px 5px;
+        width: 20px;
+        height: 20px;
+    }
+
+    #testimonials .col-sm-4{
+    	margin: 40px 0;
+    }
+
+    #footer .legal{
+    	text-align: center;
+    	margin-top: 20px;
+    }
+    #footer #wDisclaimer{
+    	width: 100%;
+    	float: none;
+    }
+
+    #footer ul.footerLangSelector{
+    	margin-top: 22px;
+    }
+    #footer ul.footerLangSelector li{
+    	display: inline;
+    	padding:10px;
+    }
+
+    .logoGrid{
+    	border:none;
+    }
+
+    .pricingTable .plan, .featuresGrid .col-sm-4{
+		margin-bottom: 40px;
+	}
+		.pricingTable .plan li{
+			font-size:90%;
+		}
+
+	.featuresGrid{
+		margin:30px 0 0 0;
+	}
+	.featuresList{
+		text-align:center;
+	}
+		.featuresList h3{
+			margin:0 0 30px 0;
+		}
+
+	.thumbnail .caption{
+		display: none;
+	}
+
+	.mobileCaption{
+		text-align: center;
+		margin: 6px 0 15px 0;
+	}
+	.moneyBack img{
+		width:100px;
+		height:100px;
+	}
+	.contactInfo{
+		margin-top: 20px;
+		padding-top: 30px;
+		border-top: 1px solid #f2f2f2;
+	}
+	
+	.prueba .btn.btn-success{
+		width:100%;
+	}
+	
+	form#signUpForm #countries, form#signUpForm .btn-lg{
+		max-width:none;
+		width:100%;
+		margin-top:10px;		
+	}
+	
+	#signUpForm .checkbox{
+		margin-top: 15px !important;
+	}
+
+		.free{
+			font-size:10pt;
+		}
+	.form-group.validation .glyphicon{
+		margin-left: 0;
+	}	
+
+	.notFoundWrap h1, .signUpPageWrap h1, .loginPageWrap h1{
+		margin-top: 20px;
+		margin-bottom: 20px;
+		font-size: 160%;
+	}
+	.notFoundWrap h2,.loginPageWrap h2{
+		font-size: 140%;
+	}
+	
+	.signUpPageWrap .moneyBackTitle{
+		font-size: 90% !important;
+		margin-bottom: 15px !important;
+	}
+	.signUpPageWrap .alert.alert-success, .loginPageWrap .alert.alert-success{
+		font-size: 12pt;
+	}
+		.signUpPageWrap .alert.alert-success .glyphicon{
+			display: block;
+			font-size: 150%;
+			margin-bottom: 10px;
+		}
+
+		.signUpPageWrap input{
+			margin-bottom: 10px;
+		}
+
+
+		.signUpPageWrap .btn{
+			display: block;
+			width: 100%;
+		}
+
+	#cookieAlert a.btn-success{
+	margin-top: 10px;
+}
+
+}
+
+@-webkit-keyframes fadeInUp { 
+    0% { 
+        opacity: 0; 
+        -webkit-transform: translateY(20px); 
+    } 
+    100% { 
+        opacity: 1; 
+        -webkit-transform: translateY(0); 
+    } 
+} 
+
+@keyframes fadeInUp { 
+    0% { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    } 
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+
+.fadeInUp { 
+    -webkit-animation-name: fadeInUp; 
+    animation-name: fadeInUp; 
+}
+
+
+@-webkit-keyframes fadeInLeft { 
+    0% { 
+        opacity: 0; 
+        -webkit-transform: translateX(-60px); 
+    } 
+    100% { 
+        opacity: 1; 
+        -webkit-transform: translateX(0); 
+    } 
+} 
+@keyframes fadeInLeft { 
+    0% { 
+        opacity: 0; 
+        transform: translateX(-60px); 
+    } 
+    100% { 
+        opacity: 1; 
+        transform: translateX(0); 
+    } 
+} 
+.fadeInLeft { 
+    -webkit-animation-name: fadeInLeft; 
+    animation-name: fadeInLeft; 
+}
+
+@-webkit-keyframes fadeInRight { 
+    0% { 
+        opacity: 0; 
+        -webkit-transform: translateX(60px); 
+    } 
+    100% { 
+        opacity: 1; 
+        -webkit-transform: translateX(0); 
+    } 
+} 
+@keyframes fadeInRight { 
+    0% { 
+        opacity: 0; 
+        transform: translateX(60px); 
+    } 
+    100% { 
+        opacity: 1; 
+        transform: translateX(0); 
+    } 
+} 
+.fadeInRight { 
+    -webkit-animation-name: fadeInRight; 
+    animation-name: fadeInRight; 
+}
+
+.copyright {font-size:12px;}
