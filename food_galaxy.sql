@@ -59,9 +59,10 @@ create table complaint
 (
   complaint_id int unsigned not null auto_increment primary key,
   customer_id int,
-  type int,
+  type int, //0 食物 ； 1 厂家 
   target_id int,  
-  content text
+  content text,
+  date date not null
 );
 
 create table black_list

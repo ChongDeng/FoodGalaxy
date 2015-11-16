@@ -1,4 +1,6 @@
+cd H:/php/food_galaxy/FoodGalaxy
 git rm -fr *
+
 git add *
 git commit -m
 git push origin master

@@ -80,7 +80,9 @@
 		//指定回调函数
 		xmlHttp.onreadystatechange = function(){
 			if(xmlHttp.readyState == 4){
-				var text = xmlHttp.responseText;							
+				var text = xmlHttp.responseText;
+				alert("str:" + text);
+				/*							
 				if(text == "success"){
 					$("#success_message").show();
 					$("#failure_message").hide();
@@ -89,7 +91,8 @@
 					$("#success_message").hide();
 					$("#failure_message").show();
 				}
-										
+
+				*/					
 			}
 		}	
 	}
@@ -226,6 +229,7 @@
 	          							'".$_POST['price']."',
 	          							NULL,'".$_POST['description']."'
 	         							)";
+		return $query;
 		$result = @$conn->query($query);
 		if(!$result) return  "Error: Can't add new food into database";
 

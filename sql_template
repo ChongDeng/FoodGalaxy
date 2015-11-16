@@ -1,4 +1,4 @@
-$$quey = "insert into review values(NULL, 
+$query = "insert into review values(NULL, 
 	          							'".$_POST['type']."', 
 	          							'".$_POST['food_id']."', 
 	          							'".$_POST['author_id']."', 
@@ -20,4 +20,13 @@ $query = "update merchant  set
 				 phone3 ='".$phone3."' 
 				 where merchant_id = ".$merchant_id;
 
+
+select food_name, content, date, name from
+(
+customer 
+natural join
+(select name as food_name, content, date, customer_id
+from (food join complaint on food_id = customer_id) 
+where merchant_id = 1 and type = 0) as y 
+)
  

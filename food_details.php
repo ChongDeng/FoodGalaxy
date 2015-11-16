@@ -54,7 +54,7 @@ function display_food_reviews($food_info){
     			<a href=\"write_food_review.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Review</a>        			
   		   </div>
    	       <div class=\"form-group\">    			
-    			<a href=\"write_complant.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Complaints</a>        			
+    			<a href=\"write_complaints.php?food_id=".$food_id."&customer_id=1\" class=\"btn btn-primary\" role=\"button\">Write Complaints</a>        			
   		   </div>";
 	
 	echo "<h3>Reviews made by customers:</h3>";
@@ -84,7 +84,7 @@ function display_food_reviews($food_info){
     			<a href=\"write_food_review.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Review</a>        			
   		   </div>
    	       <div class=\"form-group\">    			
-    			<a href=\"write_complant.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Complaints</a>        			
+    			<a href=\"write_complaints.php?food_id=".$food_id."&customer_id=1\" class=\"btn btn-primary\" role=\"button\">Write Complaints</a>        			
   		   </div>";
    /*
           

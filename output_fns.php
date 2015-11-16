@@ -106,7 +106,7 @@ function do_html_footer() {
 function do_html_heading($heading) {
   // print heading
 ?>
-  <h2><?php echo $heading;?></h2>
+  <h2 align="center"><?php echo $heading;?></h2>
 <?php
 }
 
