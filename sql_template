@@ -1,4 +1,4 @@
-$sql = "insert into review values(NULL, 
+$$quey = "insert into review values(NULL, 
 	          							'".$_POST['type']."', 
 	          							'".$_POST['food_id']."', 
 	          							'".$_POST['author_id']."', 
@@ -6,3 +6,18 @@ $sql = "insert into review values(NULL,
 	          							'".$_POST['review_content']."',
 	          							'".$_POST['date']."'
 	         							)";
+	         							
+	         							
+update food 
+set name = 'XX', price = 'xx', description ='xx'
+where food_id = 21
+
+$query = "update merchant  set 
+				 name = '".$name."', 
+				 address = '".$address."', 
+				 phone1 ='".$phone1."',
+				 phone2 ='".$phone2."',
+				 phone3 ='".$phone3."' 
+				 where merchant_id = ".$merchant_id;
+
+ 
