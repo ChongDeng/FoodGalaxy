@@ -79,6 +79,13 @@ create table malign_person
   content text
 );
 
+create table malign_according
+(
+  malign_accord_id int unsigned not null auto_increment primary key,
+  type int, //0: customer reivew; 1: merchant food description
+  target_id int  //  customer reivew id, or merchant food id
+);
+
 create table notification
 (
   notification_id int unsigned not null auto_increment primary key,

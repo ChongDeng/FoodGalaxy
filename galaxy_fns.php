@@ -1,19 +1,29 @@
 <?php 
  if(isset($_GET["action"]) and $_GET["action"]=="getText"){ 	 
  	
- 	if(($_POST['review_content']) && ($_POST['food_id'])) { //write food review
- 		$sql = "insert into review values(NULL,'".$_POST['type']."','".$_POST['food_id']."','".$_POST['author_id']."','".$_POST['title']."','".$_POST['review_content']."','".$_POST['date']."')";	  	
- 		$res = write_food_review($sql); 
+ 	if(($_POST['review_content']) && ($_POST['food_id'])) { //write food review 		
+ 		$res = write_food_review(); 
  		header('Content-Type:text/html;charset=GB2312');
- 		if($res != false) 		
- 			print 'success';
- 		else 
- 	    	print 'fail'; 	
- 		exit();
+ 		if($res == "success") 		
+	 		print 'success';
+	 	else 
+	 	    print $res; 	    
+	  	exit();  
  	}
  	
  }
  
+ function write_log($content){
+        $filename = 'debug_log.txt';		
+		$content = $content."\r\n";	
+		if(is_writable($filename)){	
+			if(false == ($handle = fopen($filename, 'a'))) return "Error: can't open";		
+			if(fwrite($handle, $content) === false) return "Error: can't write";					
+			fclose($handle);		
+		}
+		else
+			return "Error: no write permission";
+}
  
 
 function get_foods_of_category($search_key) {
@@ -69,13 +79,34 @@ function display_foods_of_category($food_array) {
   	echo "<hr />";
 }
 
-function write_food_review($sql){	
-	  require_once ('food_galaxy_fns.php');
-	  $conn = db_connect();
+function write_food_review(){	
+	require_once ('food_galaxy_fns.php');
 	  
-	  $result = $conn->query($sql);
-	  if (!$result) return false;	  
-	  return true;	 
- } 
+	$conn = db_connect();
+	$query = "insert into review values(NULL,'".$_POST['type']."','".$_POST['food_id']."','".$_POST['author_id']."','".$_POST['title']."','".$_POST['review_content']."','".$_POST['date']."')";	  	
+	$result = $conn->query($query);
+	if (!$result) return false;	 
+	  	
+	$array = file("sensitive_word_list.txt");
+	foreach($array as $line){
+		$key_word = trim($line);
+		if(strpos($_POST['review_content'], $key_word) !== false){
+			$query = "select max(review_id) as max_review_id from review";	  	
+			$result = $conn->query($query);
+			if (!$result) return false;
+			$row = $result->fetch_assoc();
+			$max_review_id = $row['max_review_id'];
+			
+			$query = "insert into malign_according values(NULL, 
+	          							0, 
+	          							'".$max_review_id."'
+	         							)";
+			$result = $conn->query($query);
+			if (!$result) return false;
+			break;	 
+		}	
+	}
+	return true;	 
+ }
 
 ?>

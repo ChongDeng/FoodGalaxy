@@ -109,7 +109,7 @@
 		  <div class="form-group" id="success_message" style="display:none;">
 		    <div class="col-sm-offset-2 col-sm-10">
 		    	<div class="alert alert-success">
-		    		<h3>Updation Success! <a href="" >Click here to refresh</a></h3>
+		    		<h3>Updation Success! <a href="sensitive_words_management.php" >Click here to refresh</a></h3>
 		    	</div>
 		    </div>
 		  </div>
@@ -152,7 +152,7 @@
 		$content = implode("\r\n",$new_list);	
 		if(is_writable($filename)){	
 			if(false == ($handle = fopen($filename, 'w'))) return "Error: can't open";		
-			if(fwrite($handle, $content) === false) return "Error: can't open";					
+			if(fwrite($handle, $content) === false) return "Error: can't write";					
 			fclose($handle);		
 		}
 		else

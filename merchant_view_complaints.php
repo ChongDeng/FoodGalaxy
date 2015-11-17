@@ -4,9 +4,7 @@
 ?>
 
 <?php
-	$conn = db_connect();	
-    $query = "select * from complaint where type = 0 and target_id = '".$food_id."'";
-    
+	$conn = db_connect();   
     
     $query = "select food_name, content, date, name from
 			(
