@@ -81,8 +81,8 @@
 		xmlHttp.onreadystatechange = function(){
 			if(xmlHttp.readyState == 4){
 				var text = xmlHttp.responseText;
-				alert("str:" + text);
-				/*							
+				//alert("str:" + text);
+											
 				if(text == "success"){
 					$("#success_message").show();
 					$("#failure_message").hide();
@@ -92,7 +92,7 @@
 					$("#failure_message").show();
 				}
 
-				*/					
+								
 			}
 		}	
 	}
@@ -171,7 +171,7 @@
 		  <div class="form-group" id="success_message" style="display:none;">
 		    <div class="col-sm-offset-2 col-sm-10">
 		    	<div class="alert alert-success">
-		    		<h3>Success! <a href="merchant_view_food.php?food_id=1" >Click here to reiew your food</a></h3>
+		    		<h3>Success! <a href="food_of_merchant.php?merchant_id=1" >Click here to reiew your food</a></h3>
 		    	</div>
 		    </div>
 		  </div>
@@ -179,7 +179,7 @@
 		   <div class="form-group" id="failure_message" style="display:none;">
 		    <div class="col-sm-offset-2 col-sm-10">
 		    	<div class="alert alert-danger">
-		    		<h3>Failed! Please try again!</h3>
+		    		<h3>Failed! May by you haven't uploaded photos yet!</h3>
 		    	</div>
 		    </div>
 		  </div>  
@@ -229,7 +229,7 @@
 	          							'".$_POST['price']."',
 	          							NULL,'".$_POST['description']."'
 	         							)";
-		return $query;
+		//return $query;
 		$result = @$conn->query($query);
 		if(!$result) return  "Error: Can't add new food into database";
 
@@ -243,12 +243,28 @@
 		$file_to_be_delteted = "temp_files/".$_POST['file_path'];	
 		$postfix = substr(strrchr($file_to_be_delteted, '.'), 1);
 		$file_to_be_created = "img/".$max_food_id.".".$postfix;		
-			
+		//write_log("file: " + $file_to_be_created);	
 		if(!copy($file_to_be_delteted, $file_to_be_created))
 			return "Error: Can't create photo file in the corresponding dir";
 		unlink($file_to_be_delteted);	
 		
-		
+		write_log("begin================");
+		$array = file("sensitive_word_list.txt");
+		foreach($array as $line){
+			$key_word = trim($line);
+			if(strpos($_POST['description'], $key_word) !== false){			
+				
+				$query = "insert into malign_according values(NULL, 
+		          							1, 
+		          							'".$max_food_id."'
+		         							)";
+				write_log($query);
+				$result = $conn->query($query);
+				if (!$result) return false;
+				break;	 
+			}	
+		}
+	    write_log("end=======================");
 		//return 
 		//return $max_food_id." ".$file_to_be_delteted." " .$file_to_be_created;
 		/*

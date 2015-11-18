@@ -114,7 +114,7 @@
 		  <div class="form-group" id="success_message" style="display:none;">
 		    <div class="col-sm-offset-2 col-sm-10">
 		    	<div class="alert alert-success">
-		    		<h3>Food Udpating Success!</a></h3>
+		    		<h3>Food Udpating Success!<a href=¡±#¡± onClick=¡±javascript:window.history.go(-1);">Click here to go back</a></h3>
 		    	</div>
 		    </div>
 		  </div>
@@ -172,6 +172,7 @@
 		$query = "update food 
 				 set name = '".$food_name."', price = '".$food_price."', description ='".$food_description."'
 				 where food_id = ".$food_id;
+		//write_log("update food: ".$query);
 		//return $query;
 		$result = @$conn->query($query);
 		if(!$result) return  "Error: Can't add update food info";

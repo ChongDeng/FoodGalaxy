@@ -1,12 +1,11 @@
 <?php
-
-	if($_POST['userid']) { 	
+	if($_POST['UserId'] || $_POST['MerchantId']) { 			
  		$res = send_notification(); 
  		header('Content-Type:text/html;charset=GB2312');
  		if($res == "success") 		
 	 		print 'success';
 	 	else 
-	 	    print $res; 	    
+	 	    print $res;		  
 	  	exit();  
  	}
  	
@@ -18,20 +17,26 @@
 	
 ?>  
 
- <script type="text/javascript">
-
- 	
+ <script type="text/javascript"> 	
  
-	function sent_message_to_user(){
+	function send_message(type){
+
+		var message = document.getElementById("message").value;
 		
-		var message = document.getElementById("message").value;		
-		var user_id = "<?php echo $_GET["user_id"];?>";	
-		var type = 0;	
-		var post = "message=" + message + "&userid=" + user_id + 
-		           "&type=" + type;
+		var user_id = null; var merchant_id = null; var post = null;
+		if(type == 0){ 
+			user_id = "<?php echo $_GET["user_id"];?>";
+			post = "message=" + message + "&UserId=" + user_id + 
+	           "&type=" + type;
+		}
+		else if(type == 1){
+			merchant_id = "<?php echo $_GET["merchant_id"];?>";
+			post = "message=" + message + "&MerchantId=" + merchant_id + 
+	           "&type=" + type;
+		}				
+		
 		var action = "action=getText";
 		var url = "send_warning_message.php";
-
 		var xmlHttp = false;
 		try {
 			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
@@ -55,8 +60,8 @@
 		xmlHttp.onreadystatechange = function(){
 			if(xmlHttp.readyState == 4){
 				var text = xmlHttp.responseText;
-				alert("str: " + text);
-				/*	
+				//alert("str: " + text);
+					
 				if(text == "success"){
 					$("#success_message").show();
 					$("#failure_message").hide();
@@ -64,10 +69,7 @@
 				else{
 					$("#success_message").hide();
 					$("#failure_message").show();
-				}
-				*/
-				
-									
+				}									
 			}
 		}
 			
@@ -83,6 +85,13 @@
 
 <?php
 	function display_warning_form(){
+		
+		$type = null;
+		if($_GET['user_id'])
+			$type = 0;
+		else if($_GET['merchant_id'])
+			$type = 1;
+			
 		echo '
 		<form class="form-horizontal" id ="parent">
 		 
@@ -95,7 +104,7 @@
 		 
 		  <div class="form-group">
 		    <div class="col-sm-offset-2 col-sm-10">
-		      <button onclick="sent_message_to_user()" type="button" class="btn btn-primary">Submit</button>
+		      <button onclick="send_message('.$type.')" type="button" class="btn btn-primary">Submit</button>
 		    </div>
 		  </div>
 		  
@@ -121,20 +130,26 @@
 
 <?php
 	function send_notification(){
-		$type = null; $message = $_POST['message']; $target_id = null;		
 		
-		if($_POST['userid']){
-			$type = 0;
-			$target_id = $_POST['userid'];
-		}
-		else if($_POST['merchant_id']){
-			$type = 1;
-			$target_id = $_POST['merchant_id'];			
-		}
+		$type = $_POST['type']; $message = $_POST['message']; $target_id = null; $date = date("Y-m-d");
+		if($_POST['UserId'])
+			$target_id = $_POST['UserId'];		
+		else if($_POST['MerchantId'])		
+			$target_id = $_POST['MerchantId'];			
 		
 		
-		$post = "#".$type."#".$message."#".$target_id."#";
-		write_log($post);
+		require_once ('food_galaxy_fns.php');
+		$conn = db_connect();
+		$query = "insert into notification values(NULL, 
+	          							'".$type."', 
+	          							'".$target_id."', 
+	          							'".$message."',
+	          							'".$date."'          							
+	         							)";	
+		
+   		$result = @$conn->query($query);   		
+		if (!$result) return  "Error: can't send notification";		
+		
 		return "success";
 	} 
 ?>

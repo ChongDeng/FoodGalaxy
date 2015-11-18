@@ -91,7 +91,8 @@ create table notification
   notification_id int unsigned not null auto_increment primary key,
   type int,
   target_id int, 
-  content text
+  content text,
+  date date not null
 );
 
 create table recommendation
