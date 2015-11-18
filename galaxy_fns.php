@@ -83,7 +83,7 @@ function write_food_review(){
 	require_once ('food_galaxy_fns.php');
 	  
 	$conn = db_connect();
-	$query = "insert into review values(NULL,'".$_POST['type']."','".$_POST['food_id']."','".$_POST['author_id']."','".$_POST['title']."','".$_POST['review_content']."','".$_POST['date']."')";	  	
+	$query = "insert into review values(NULL,'".$_POST['type']."','".$_POST['food_id']."','".$_POST['author_id']."','".$_POST['title']."','".$_POST['review_content']."','".$_POST['date']."')";		  	
 	$result = $conn->query($query);
 	if (!$result) return false;	 
 	  	
@@ -107,6 +107,23 @@ function write_food_review(){
 		}	
 	}
 	return true;	 
+ }
+ 
+ function test_session(){
+ 	session_start();
+ 	$old_user = $_SESSION['valid_user'];
+ 	$old_merchant = $_SESSION['valid_merchant'];
+ 	$old_name = $_SESSION['name'];
+    write_log("old user id: ".$old_user."  and old merchant id: ".$old_merchant." and name: ".$old_name);
+    
+
+	unset($_SESSION['valid_user']);
+	unset($_SESSION['valid_merchant']);
+	session_destroy();
+	$new_user = $_SESSION['valid_user'];
+ 	$new_merchant = $_SESSION['valid_merchant'];
+ 	$new_name = $_SESSION['name'];
+	write_log("now user id: ".$new_user."  and now merchant id: ".$new_merchant." and name: ".$new_name);
  }
 
 ?>

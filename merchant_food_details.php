@@ -114,7 +114,7 @@
 		  <div class="form-group" id="success_message" style="display:none;">
 		    <div class="col-sm-offset-2 col-sm-10">
 		    	<div class="alert alert-success">
-		    		<h3>Food Udpating Success!<a href=¡±#¡± onClick=¡±javascript:window.history.go(-1);">Click here to go back</a></h3>
+		    		<h3>Food Udpating Success!<a href="food_of_merchant.php?merchant_id=<?php session_start(); echo $_SESSION['valid_merchant'];?>">Click here to go back</a></h3>
 		    	</div>
 		    </div>
 		  </div>

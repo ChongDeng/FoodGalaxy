@@ -20,6 +20,8 @@ create table merchant
 (
   merchant_id int unsigned not null auto_increment primary key,
   name char(60) not null,
+  password char(80) not null,
+  email char(80) not null,
   address char(80) not null,
   phone1 char(20) not null,
   phone2 char(20),

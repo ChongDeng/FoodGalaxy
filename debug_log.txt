@@ -1,30 +1,20 @@
-0
-update food: update food 
-				 set name = 'noodle', price = '89', description ='good'
-				 where food_id = 2
-update food: update food 
-				 set name = 'lobster', price = '1999', description ='hello Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.s'
-				 where food_id = 1
-update food: update food 
-				 set name = 'lobster', price = '986', description ='hello Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.s'
-				 where food_id = 1
-update food: update food 
-				 set name = 'lobster', price = '456', description ='hello Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.s'
-				 where food_id = 1
-update food: update food 
-				 set name = 'lobster', price = '45877', description ='hello Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.s'
-				 where food_id = 1
+old user id:   and old merchant id: 1 and name: guchen
+now user id:   and now merchant id:  and name: guchen
+old user id: 9  and old merchant id:  and name: nanding
+now user id:   and now merchant id:  and name: nanding
+begin================
+end=======================
+begin================
+end=======================
+begin================
+end=======================
+begin================
+end=======================
 begin================
 end=======================
 begin================
 insert into malign_according values(NULL, 
 		          							1, 
-		          							'24'
-		         							)
-end=======================
-begin================
-insert into malign_according values(NULL, 
-		          							1, 
-		          							'25'
+		          							'31'
 		         							)
 end=======================

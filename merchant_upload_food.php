@@ -48,8 +48,8 @@
 		var description =  document.getElementById("description").value;	
 		var category = document.getElementById("category").value;		
 		var new_category = document.getElementById("new_category").value;
-		var file_path = "<?php echo $filename;?>";
-		var merchant_id = "1";
+		var file_path = "<?php echo $filename;?>";		
+		var merchant_id = "<?php session_start(); echo $_SESSION['valid_merchant'];?>";
 
 		var post = "name=" + name + "&price=" + price + 
         "&description=" + description +"&category=" + category +
@@ -57,7 +57,7 @@
         "&merchant_id=" + merchant_id;
 		var action = "action=getText";
 		var url = "merchant_upload_food.php";
-
+		//alert("merchant: " + merchant_id);
 		var xmlHttp = false;
 		try {
 			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
@@ -171,7 +171,7 @@
 		  <div class="form-group" id="success_message" style="display:none;">
 		    <div class="col-sm-offset-2 col-sm-10">
 		    	<div class="alert alert-success">
-		    		<h3>Success! <a href="food_of_merchant.php?merchant_id=1" >Click here to reiew your food</a></h3>
+		    		<h3>Success! <a href="food_of_merchant.php?merchant_id=<?php session_start(); echo $_SESSION['valid_merchant'];?>" >Click here to reiew your food</a></h3>
 		    	</div>
 		    </div>
 		  </div>
@@ -195,6 +195,8 @@
 	function merchant_upload_food(){
 		require_once ('food_galaxy_fns.php');
 		$catogery_name = $_POST['category'];
+		
+		//$sql = "insert into review values(NULL,'".$_POST['name']."','".$_POST['price']."','".$_POST['description']."','".$_POST['category']."','".$_POST['new_category']."','".$_POST['file_path']."')";
 		
 		$conn = db_connect();
 		$quey; $result;

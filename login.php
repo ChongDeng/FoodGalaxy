@@ -1,41 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    
-        <title>Food Galaxy Manager</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+<?php
+ require_once('food_galaxy_fns.php');
+ do_html_header('Welcome to Food Galaxy, please login');
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="favicon.png">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://manager.wasify.com/assets/css/public.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container container-body" id="managerLogin">
-      <div class="row">
-        <div class="col-sm-offset-4 col-sm-4 text-center">
-          <div style="margin-top:25%">
-            <div class="loginLogo"><img class="img-responsive" src="https://manager.wasify.com/assets/img/logo-big.png"></div>
-                          <div class="alert alert-danger">Wrong username or password, please try again</div>
-                        <form class="form-signin" role="form" action="login" method="post">
-              <div class="form-group">
-                <input type="email" class="form-control" id="email" name="email" maxlength="50" placeholder="Email" value="">
-                <input type="password" class="form-control" id="pass" name="pass" maxlength="20" placeholder="Password" value="">
-                
-              </div>
-              <button type="submit" class="btn btn-lg btn-success btn-block" name="commandLogin" value="1">Login</button>
-              <div class="loginLinks">
-                <a href="#">Forgotten password?</a>
-                <br><a href="#" rel="nofollow" data-toggle="modal" data-target="#signUp">Not a user yet? Try Food Galaxy!</a>
-              </div>
-            </form> 
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+ //display_site_info(); 
+ ?> 
+
+ 
+ 
+<div class = "container">
+	<form class="form-horizontal" method="post" action="home.php">		
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+		    <div class="col-sm-10">
+		    	<input type="text" class="form-control" name="username" placeholder="">
+		    </div>
+		</div>
+		
+		  <div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+		    <div class="col-sm-10">
+		      <input type="password" class="form-control" name="passwd" placeholder="">
+		    </div>
+		  </div>
+		  
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">Login as:</label>
+		    	<div class="col-sm-10">
+			    	<select class="form-control" name="type"> 		
+   						<option value="0">Customer</option>
+   						<option value="1">Merchant</option>
+			  		</select>
+		    	</div>
+		  	</div>
+		  	
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <div class="checkbox">
+		        <label>
+		          <input type="checkbox"> Remember me
+		        </label>
+		        <label for="inputEmail3" class=" control-label"><a href="register_form.php"><b>Not a member?</b></a></label>
+		        <label for="inputEmail3" class=" control-label"><a href="forgot_form.php"><b>Forgot your password?</b></a></label>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <button type="submit" class="btn btn-primary">Sign in</button>
+		    </div>
+		  </div>
+		</form>
+  </div>
+
+ 
+<?php
+ do_html_footer();
+?>

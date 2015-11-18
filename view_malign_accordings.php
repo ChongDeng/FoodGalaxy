@@ -20,7 +20,7 @@
 	
 	<script type="text/javascript"> 
 	function block_user(id, type){
-		alert("arg: " + id);					
+		//alert("arg: " + id);					
 		
 		var post = null;
 		if(type == 0)		

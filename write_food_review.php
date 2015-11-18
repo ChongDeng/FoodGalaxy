@@ -13,7 +13,7 @@
 		var title = document.getElementById("title").value;
 		var content = document.getElementById("content").value;
 		var food_id = "<?php echo $_GET["food_id"];?>";
-		var author_id = 1;
+		var author_id = "<?php session_start(); echo $_SESSION['valid_user'];?>";
 		var date = "<?php $date = date("Y-m-d"); echo $date;?>";
 		var type = 0;
 		var post = "food_id=" + food_id + "&review_content=" + content + 

@@ -39,16 +39,43 @@ function do_html_header($title) {
   			
   			<ul class="nav navbar-nav">
   				<li class="active"><a href="#">Food Recommendation <span class="sr-only"></span></a></li>
-  				<li><a href="#">Message Box</a></li>
+  				
   				<li class="dropdown"><a href="#"  class="dropdown-toggle" 
   				data-toggle="dropdown" role="button" aria-expanded="false">
-  				Dropdown <span class="caret"></span></a>
+  				Customer <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="#">hello</a></li>		            
+		            <li><a href="view_notifications.php?user_id=<?php session_start(); echo $_SESSION['valid_user'];?>">message box</a></li>		            
 		            <li class="divider"></li>
 		            <li><a href="#">world</a></li>		           
 		          </ul>
+        		</li>    
+        		    		
+        		<li class="dropdown"><a href="#"  class="dropdown-toggle" 
+  				data-toggle="dropdown" role="button" aria-expanded="false">
+  				Merchant <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="merchant_upload_food.php">upload food</a></li>		            
+		            <li class="divider"></li>
+		            <li><a href="food_of_merchant.php?merchant_id=<?php session_start(); echo $_SESSION['valid_merchant'];?>">view my food</a></li>
+		            <li class="divider"></li>
+		            <li><a href="merchant_info_details.php?merchant_id=<?php session_start(); echo $_SESSION['valid_merchant'];?>">my information</a></li>
+		            <li class="divider"></li>
+		            <li><a href="merchant_view_complaints.php?merchant_id=<?php session_start(); echo $_SESSION['valid_merchant'];?>">view comlaints</a></li>
+		            <li class="divider"></li>
+		            <li><a href="view_notifications.php?merchant_id=<?php session_start(); echo $_SESSION['valid_merchant'];?>">message box</a></li>		            
+		          </ul>
         		</li>
+        		
+        		<li class="dropdown"><a href="#"  class="dropdown-toggle" 
+  				data-toggle="dropdown" role="button" aria-expanded="false">
+  				Administrator <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="sensitive_words_management.php">manage black list</a></li>		            
+		            <li class="divider"></li>
+		            <li><a href="view_malign_accordings.php">monitor</a></li>		           
+		          </ul>
+        		</li>
+        		
   			</ul>
   			<form class="navbar-form navbar-left" role="search" action="show_food.php" method="get">
         		<div class="form-group">
@@ -56,11 +83,10 @@ function do_html_header($title) {
         		</div>
         		<button type="submit" class="btn btn-primary">Search</button>
       		</form>
-      		<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#login">
-  				Log in
-  			</button>
-      		<button type="button" class="btn btn-primary navbar-btn navbar-right">Sign in</button>
-      		<p class="navbar-text"><b>Welcome to Food Galaxy</b></p>
+      		<a href="logout.php" class="btn btn-primary navbar-btn navbar-right" role="button">Log out</a>
+      		<a href="login.php" class="btn btn-primary navbar-btn navbar-right" role="button">Log in</a>		
+      		
+      		<p class="navbar-text"><b><?php session_start(); if($_SESSION['name']) echo "Logged in as: ".$_SESSION['name']; else echo "Welcome to Food Galaxy";?></b></p>
   		</div>
   	</nav>
   	

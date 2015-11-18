@@ -1,18 +1,13 @@
 <?php  
    include_once('food_galaxy_fns.php'); 
-   do_html_header("Food of Merchant:");
-   
-  
+   do_html_header("Food of Merchant:");  
    
    if($_GET['delete_food_id']){
    	 if(!delete_food($_GET['delete_food_id']))
-   	 	echo "Error: Failed to delete food";
-   	 
-   	 	
+   	 	echo "Error: Failed to delete food";   	 	
    }
    
-    display_food_of_merchant();
-  
+    display_food_of_merchant(); 
 ?>
 
 

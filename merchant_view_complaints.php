@@ -17,7 +17,14 @@
    
     //echo $query;
 	$result = @$conn->query($query);
-	//echo $result->num_rows;
+	if($result->num_rows == 0)
+		echo '<div class="form-group" id="success_message">
+		    <div class="col-sm-offset-2 col-sm-8">
+		    	<div class="alert alert-success">
+		    		<h3> Great, no complaints from customers! </h3>
+		    	</div>
+		    </div>
+		  </div>'; 
    	while($row = $result->fetch_assoc()){
    	
    		
