@@ -1,6 +1,6 @@
 <?php
 
-	if($_POST['user_id']) { 			
+	if($_POST['user_id'] || $_POST['merchant_id']) { 			
  		$res = add_to_black_list(); 
  		header('Content-Type:text/html;charset=GB2312');
  		if($res == "success") 		
@@ -19,12 +19,15 @@
 ?>  
 	
 	<script type="text/javascript"> 
-	function block_user(arg){
-		//alert("str: " + arg);
-					
-		var user_id = arg;	
-		var type = 0;	
-		var post = "user_id=" + user_id + "&type=" + type;
+	function block_user(id, type){
+		alert("arg: " + id);					
+		
+		var post = null;
+		if(type == 0)		
+			post = "user_id=" + id + "&type=" + type;
+		else if(type == 1)
+			post = "merchant_id=" + id + "&type=" + type;
+		
 		var action = "action=getText";
 		var url = "view_malign_accordings.php";
 
@@ -106,7 +109,7 @@
 	            				<p>Content: ".$row['content']."</p>            
 	              			</div>	              			      
 		      				<a href=\"send_warning_message.php?user_id=".$row['user_id']."\" class=\"col-sm-1 btn btn-primary\" role=\"button\">Send Message</a>		      				
-		    				<button onclick=\"block_user(".$row['user_id'].")\" type=\"button\" class=\"col-sm-1 btn btn-primary\">Set black list</button>		    				
+		    				<button onclick=\"block_user(".$row['user_id'].",0)\" type=\"button\" class=\"col-sm-1 btn btn-primary\">Set black list</button>		    				
 		    				
 		  				</div>		  
 					</form>
@@ -141,7 +144,7 @@
 	            				<p>Food Decrption: ".$row['description']."</p>           
 	              			</div>	              			      
 		      				<a href=\"send_warning_message.php?merchant_id=".$row['merchant_id']."\" class=\"col-sm-1 btn btn-primary\" role=\"button\">Send Message</a>
-		    				<button onclick=\"block_user()\" type=\"button\" class=\"col-sm-1 btn btn-primary\">Set black list</button>		    				
+		    				<button onclick=\"block_user(".$row['merchant_id'].",1)\" type=\"button\" class=\"col-sm-1 btn btn-primary\">Set black list</button>		    				
 		    				 		    			
 		  				</div>		  
 					</form>
