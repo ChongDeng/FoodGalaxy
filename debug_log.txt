@@ -19,3 +19,42 @@ select food.name as food_name, food_id, description, price, food.popularity_leve
 select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
 				  from food
 				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'asdfdasfadsfdasf'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'asdfasdfasdfasd'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'asdfasdfsadfad'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'zsdfasdf'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'sdfasfads'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'dvdv'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'sddfdfsdf'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japansdfdf'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'

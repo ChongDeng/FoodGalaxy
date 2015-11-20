@@ -26,13 +26,13 @@ echo 	"<div class=\"panel panel-default\">
 	       
 	        <tbody>
 	          <tr>
-	            <td>Name: </td>   <td>".$food_info[0]['name']."</td>
+	            <td>Name: </td>   <td>".$food_info[0]['food_name']."</td>
 	          </tr>
 	          <tr>
 	            <td>Category: </td>  <td>".$food_info[0]['catogery_name']."</td>
 	          </tr>
 	          <tr>
-	            <td>Merchant Name: </td>  <td>".$food_info[0]['merchant_id']."</td>
+	            <td>Merchant Name: </td>  <td>".$food_info[0]['merchant_name']."</td>
 	          </tr>
 	          <tr>
 	            <td>Price: </td>  <td>".$food_info[0]['price']."</td>
@@ -51,12 +51,11 @@ function display_food_reviews($food_info){
 	
 	$food_id = $food_info[0]['food_id'];
 	
-	echo "<div class=\"form-group\">    			
-    			<a href=\"write_food_review.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Review</a>        			
+	echo "<div class=\"form-group form-horizontal\">    			
+    			<a href=\"write_food_review.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Review</a>
+    			<a href=\"write_complaints.php?food_id=".$food_id."&customer_id=".$id."\" class=\"btn btn-primary\" role=\"button\">Write Complaints</a>        			        			
   		   </div>
-   	       <div class=\"form-group\">    			
-    			<a href=\"write_complaints.php?food_id=".$food_id."&customer_id=".$id."\" class=\"btn btn-primary\" role=\"button\">Write Complaints</a>        			
-  		   </div>";
+   	       ";
 	
 	echo "<h3>Reviews made by customers:</h3>";
 	
@@ -80,13 +79,12 @@ function display_food_reviews($food_info){
               </div>"; 
    	    echo "<hr>";		
    	}
-   	
-   	echo "<div class=\"form-group\">    			
-    			<a href=\"write_food_review.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Review</a>        			
+   	echo "<hr>";
+   	echo "<div class=\"form-group form-horizontal\">    			
+    			<a href=\"write_food_review.php?food_id=".$food_id."\" class=\"btn btn-primary\" role=\"button\">Write Review</a>
+    			<a href=\"write_complaints.php?food_id=".$food_id."&customer_id=".$id."\" class=\"btn btn-primary\" role=\"button\">Write Complaints</a>        			        			
   		   </div>
-   	       <div class=\"form-group\">    			
-    			<a href=\"write_complaints.php?food_id=".$food_id."&customer_id=".$id."\" class=\"btn btn-primary\" role=\"button\">Write Complaints</a>        			
-  		   </div>";
+   	       ";
    /*
           
 	echo "<hr>";
@@ -111,7 +109,14 @@ function get_food_details($food_id) {
    }
    
    $conn = db_connect();
-   $query = "select * from food where food_id = '".$food_id."'";
+  // $query = "select * from food where food_id = '".$food_id."'";
+   
+   $query = "select food_id, description, food.name as food_name, catogery_name, merchant.name as merchant_name, price, food.popularity_level as popularity_level
+			 from food, merchant
+			 where food.merchant_id = merchant.merchant_id and food_id = '".$food_id."'";
+   
+   
+
    
    $result = @$conn->query($query);
    if (!$result) {

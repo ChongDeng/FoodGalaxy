@@ -22,8 +22,10 @@
 		//构建JSON数据		
 		$json = "{food:[".implode(",",$jsonArray)."]}";
 		//输出JSON数据
-		print $json;
-		
+		if($res)
+			print $json;
+		else
+			print "no results";
 		exit();
 	}
   	
@@ -42,6 +44,8 @@
 
 	var jsonObj = null;
 	var search_res_array = new Array();		
+	var price_flip = true;
+	var popularity_flip = true;
 	
 	function search_food(type){
 		$action = null;
@@ -70,13 +74,20 @@
 	   	//提交请求后的状态
 	      if (xmlHttp.readyState == 4) {
 	      //HTTP请求的状态
-	         if (xmlHttp.status == 200) {		      
-	            //使用eval()引用JSON数据
-	            jsonObj = eval("(" + xmlHttp.responseText + ")");
-	            var res = store_search_result(jsonObj);
-	            display_res(res);			  
+	         if (xmlHttp.status == 200) {
+		        if(xmlHttp.responseText == "no results"){
+		        	 $("#no_result_message").show();
+		        	 document.getElementById("search_result").innerHTML = "";
+	            }
+		        else{		      
+		        	$("#no_result_message").hide();
+		            //使用eval()引用JSON数据
+		            jsonObj = eval("(" + xmlHttp.responseText + ")");
+		            var res = store_search_result(jsonObj);
+		            display_res(res);
+		       }			  
 	         } else {
-	        	 $("#failure_message").show();
+	        	 //$("#failure_message").show();
 	         }
 	      }
 	}
@@ -119,13 +130,30 @@
 	}
 
 	function sort_by_price(){
-		var res = search_res_array.sort(function(x,y){return x[3]-y[3]});
-		display_res(res);
+		if(price_flip){			
+			search_res_array.sort(function(x,y){return x[3]-y[3]});
+			document.getElementById("sort_by_price").innerHTML = "Ascending Sort by Price";
+		}		
+		else{
+			search_res_array.reverse();
+			document.getElementById("sort_by_price").innerHTML = "Descending Sort by Price";
+		}
+		display_res(search_res_array);
+		price_flip = !price_flip;
+		
 	}
 
 	function sort_by_popularity(){
-		var res = search_res_array.sort(function(x,y){return x[4]-y[4]});
-		display_res(res);
+		if(popularity_flip){			
+			search_res_array.sort(function(x,y){return x[4]-y[4]});
+			document.getElementById("sort_by_popularity").innerHTML = "Ascending Sort by Popularity";
+		}		
+		else{
+			search_res_array.reverse();
+			document.getElementById("sort_by_popularity").innerHTML = "Descending Sort by Popularity";
+		}
+		display_res(search_res_array);
+		popularity_flip = !popularity_flip;
 	}
 	
 	function test(){
@@ -134,10 +162,10 @@
 	   
 </script>	
 
-<div class="form-group" id="failure_message" style="display:none;">
-		    <div class="col-sm-offset-2 col-sm-10">
+<div class="form-group" id="no_result_message" style="display:none;">
+		    <div class="col-sm-offset-2 col-sm-8">
 		    	<div class="alert alert-danger">
-		    		<h3>Failed! Please try again!</h3>
+		    		<h3 align="center">Sorry! No results!</h3>
 		    	</div>
 		    </div>
 </div>  		
@@ -175,9 +203,9 @@
 			  <button onclick="search_food(\'category_type\')" type="button" class="btn btn-primary">Search</button>
 			</form>			
 			
-			<button onclick="sort_by_price()" type="submit" class="btn btn-primary">Sort by Price</button>
-			<button onclick="sort_by_popularity()" type="submit" class="btn btn-primary">Sort by Popularity</button>
-			<button onclick="test()" type="submit" class="btn btn-primary">test</button>
+			<button onclick="sort_by_price()" type="submit" id="sort_by_price" class="btn btn-primary">Ascending Sort by Price</button>
+			<button onclick="sort_by_popularity()" type="submit" id="sort_by_popularity" class="btn btn-primary">Ascending Sort by Popularity</button>
+			
 			
   		</div>
   		<hr> 		

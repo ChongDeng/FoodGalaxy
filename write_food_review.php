@@ -124,7 +124,7 @@ if(isset($_GET["action"]) and $_GET["action"]=="getText"){
  
  <?php
  	 function write_food_review(){	
-		require_once ('food_galaxy_fns.php');
+		require_once ('db_fns.php');
 		  
 		$conn = db_connect();
 		$query = "insert into review values(NULL,'".$_POST['type']."','".$_POST['food_id']."','".$_POST['author_id']."','".$_POST['title']."','".$_POST['review_content']."','".$_POST['date']."')";		  	
