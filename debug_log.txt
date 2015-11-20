@@ -1,14 +1,21 @@
-1: insert into review values(NULL,'0','29','9','jian','hua','2015-11-20')
-1: insert into review values(NULL,'0','29','10','sdfwef','errthtr','2015-11-20')
-1: insert into review values(NULL,'0','29','10','sdfd','adfsdfasdf','2015-11-20')
-1.5: select max(review_id) as max_review_id from review
-2: insert into malign_according values(NULL, 
-		          							0, 
-		          							'71'
-		         							)
-1: insert into review values(NULL,'0','29','10','sdf','fuck ni mei','2015-11-20')
-1.5: select max(review_id) as max_review_id from review
-2: insert into malign_according values(NULL, 
-		          							0, 
-		          							'72'
-		         							)
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'afsdfdsafsdf'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'

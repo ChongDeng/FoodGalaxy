@@ -6,12 +6,11 @@
 			$res = search_by_merchant_name($_GET['merchant_name']);
 		}
 		else if($_GET['category_name']){
-			;			
+			$res = search_by_category_name($_GET['category_name']);			
 		}
 		$jsonArray = array();
 		for($row = 0; $row < count($res); ++$row){
-				$food = array();
-				//取出数组单元,对中文字符进行URL编码
+				$food = array();				
 				$food[0] = $res[$row]['food_id']; 
 				$food[1] = $res[$row]['food_name'];
 				$food[2] = $res[$row]['description'];
@@ -42,6 +41,7 @@
 <script type="text/javascript">
 
 	var jsonObj = null;
+	var search_res_array = new Array();		
 	
 	function search_food(type){
 		$action = null;
@@ -53,59 +53,84 @@
 			var merchant_name = document.getElementById("merchant_name").value;
 			action = "action=getJSON&merchant_name=" + merchant_name;
 		}
-				
+			
 		//定义要提交脚本的地址
 		var url = "advanced_search_result.php";
 		
 		//指定回调函数
 		//xmlHttp.onreadystatechange = showJSON;
-		xmlHttp.onreadystatechange = show_food;
+		xmlHttp.onreadystatechange = result_process;
 		//使用GET方法提交数据
 		xmlHttp.open("GET",url+"?"+action,true);
 		//发送请求
 		xmlHttp.send(null);
 	}
 
-	function show_food(){		
+	function result_process(){		
 	   	//提交请求后的状态
 	      if (xmlHttp.readyState == 4) {
 	      //HTTP请求的状态
 	         if (xmlHttp.status == 200) {		      
 	            //使用eval()引用JSON数据
 	            jsonObj = eval("(" + xmlHttp.responseText + ")");
-	            var result_html = '';
-	            for(var i=0;i<jsonObj.food.length;i++){   	         	
-	   	         	var row = Array(5);
-	            	row[0]=jsonObj.food[i][0];
-			    	row[1]=jsonObj.food[i][1];
-			    	row[2]=jsonObj.food[i][2];
-			    	row[3]=jsonObj.food[i][3];
-			    	row[4]=jsonObj.food[i][4];			    	
-			    	
-	            	result_html += '<div class="col-xs-12 col-sm-6 col-md-4">'
-		            				+ '<div class="thumbnail">'
-		            					+ '<a href="food_details.php?food_id=' + row[0] + '"><img src="img/' + row[0] + '.jpg" alt="..."></a>'
-		            					+ '<div class="caption">'
-		            						+ '<h3>' + row[1] + '</h3>'
-		            						+ '<p>' + row[2] + '</p>'
-		            						+ '<p>'
-		            							+ '<a href="food_details.php?food_id=' + row[0] + '" class="btn btn-primary" role="button">View Details</a>'
-		            						+ '</p>'
-		            					+ '</div>'
-		            				+ '</div>'
-		            	         + '</div>';
-	            }	            
-
-	            var search_result = document.getElementById("search_result");
-	            search_result.innerHTML = result_html;	        
-				  
+	            var res = store_search_result(jsonObj);
+	            display_res(res);			  
 	         } else {
 	        	 $("#failure_message").show();
 	         }
 	      }
 	}
 	
+	function store_search_result(jsonObj){
+		search_res_array = []; //clear		
+        for(var i=0;i<jsonObj.food.length;i++){   	         	
+	        var row = Array(5);
+        	row[0]=jsonObj.food[i][0];
+	    	row[1]=jsonObj.food[i][1];
+	    	row[2]=jsonObj.food[i][2];
+	    	row[3]=jsonObj.food[i][3];
+	    	row[4]=jsonObj.food[i][4];			    	
+	    	search_res_array.push(row);
+        }
+       
+        return search_res_array;
+	}
+
+	function display_res(res){
+		var result_html = '';
+        for(var i=0; i<res.length; i++){   	         	
+	        var row = res[i];    	
+        	result_html += '<div class="col-xs-12 col-sm-6 col-md-4">'
+            				+ '<div class="thumbnail">'
+            					+ '<a href="food_details.php?food_id=' + row[0] + '"><img src="img/' + row[0] + '.jpg" alt="..."></a>'
+            					+ '<div class="caption">'
+            						+ '<h3>' + row[1] + '</h3>'
+            						+ '<p>' + row[2] + '</p>'
+            						+ '<p>'
+            							+ '<a href="food_details.php?food_id=' + row[0] + '" class="btn btn-primary" role="button">View Details</a>'
+            						+ '</p>'
+            					+ '</div>'
+            				+ '</div>'
+            	         + '</div>';
+        }	            
+
+        var search_result = document.getElementById("search_result");
+        search_result.innerHTML = result_html;	   
+	}
+
+	function sort_by_price(){
+		var res = search_res_array.sort(function(x,y){return x[3]-y[3]});
+		display_res(res);
+	}
+
+	function sort_by_popularity(){
+		var res = search_res_array.sort(function(x,y){return x[4]-y[4]});
+		display_res(res);
+	}
 	
+	function test(){
+		alert("len: " + search_res_array.length);
+	}
 	   
 </script>	
 
@@ -148,16 +173,11 @@
 			    </div>
 			  </div>
 			  <button onclick="search_food(\'category_type\')" type="button" class="btn btn-primary">Search</button>
-			</form>
+			</form>			
 			
-			<label class="checkbox-inline">
-					  <input type="checkbox" id="inlineCheckbox1" value="option1"> Sort by Price
-					</label>
-					
-			<label class="checkbox-inline">
-					  <input type="checkbox" id="inlineCheckbox2" value="option2"> Sort by Popularity Level
-			</label>
-			<button type="submit" class="btn btn-primary">Apply</button>
+			<button onclick="sort_by_price()" type="submit" class="btn btn-primary">Sort by Price</button>
+			<button onclick="sort_by_popularity()" type="submit" class="btn btn-primary">Sort by Popularity</button>
+			<button onclick="test()" type="submit" class="btn btn-primary">test</button>
 			
   		</div>
   		<hr> 		
@@ -180,6 +200,39 @@
 				 from food, merchant
 				 where merchant.merchant_id = food.merchant_id and merchant.name = '".$merchant_name."'";
 	      
+	   	$result = @$conn->query($query);	   
+	   	if (!$result){
+	   		return  "Error: Can't execute query about food";	   		
+	   	} 	   
+	   
+	   	$num = @$result->num_rows;
+	   	if($num == 0){	     
+	      return false;
+	   	}
+	  
+		$res_array = array();
+   		for ($count=0; $row = $result->fetch_assoc(); $count++) {
+     		$res_array[$count] = $row;
+     		//write_log("cnt: ".$count);	 
+   		}
+   		return $res_array;	 
+	}
+	
+	function search_by_category_name($category_name){
+		
+	 				
+		// query database for the books in a category
+	   	if ((!$category_name) || ($category_name == '')) {
+	    	 return false;
+	   	}
+	   
+	   	include_once('db_fns.php');
+	   	include_once('galaxy_fns.php');	  
+	   	$conn = db_connect();	  
+	   	$query = "select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = '".$category_name."'";
+	    write_log($query);  
 	   	$result = @$conn->query($query);	   
 	   	if (!$result){
 	   		return  "Error: Can't execute query about food";	   		
