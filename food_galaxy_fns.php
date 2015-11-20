@@ -4,6 +4,7 @@
   include_once('data_valid_fns.php');
   include_once('user_auth_fns.php');
   include_once('galaxy_fns.php');
+  //include_once("ajax.php");千万不能加进来
   //include_once("ajax_include_file.php");
   /*
  

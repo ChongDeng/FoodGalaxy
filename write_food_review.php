@@ -1,4 +1,18 @@
 <?php
+
+if(isset($_GET["action"]) and $_GET["action"]=="getText"){ 	 	
+ 	if(($_POST['review_content']) && ($_POST['food_id'])) { //write food review 		
+ 		$res = write_food_review(); 
+ 		header('Content-Type:text/html;charset=GB2312');
+ 		if($res == "success") 		
+	 		print 'success';
+	 	else 
+	 	    print $res; 	    
+	  	exit();  
+ 	}
+ 	
+ }
+ 
  require_once('food_galaxy_fns.php');
  
  do_html_header("Please Write the review!"); 
@@ -20,7 +34,7 @@
 		           "&type=" + type +"&author_id=" + author_id +
 		           "&title=" + title +"&date=" + date;
 		var action = "action=getText";
-		var url = "galaxy_fns.php";
+		var url = "write_food_review.php";
 
 		var xmlHttp = false;
 		try {
@@ -54,6 +68,7 @@
 				else{
 					$("#success_message").hide();
 					$("#failure_message").show();
+					alert("text: " + text);
 				}
 									
 			}
@@ -105,6 +120,39 @@
 
  <?php
   do_html_footer(); 
+ ?>
+ 
+ <?php
+ 	 function write_food_review(){	
+		require_once ('food_galaxy_fns.php');
+		  
+		$conn = db_connect();
+		$query = "insert into review values(NULL,'".$_POST['type']."','".$_POST['food_id']."','".$_POST['author_id']."','".$_POST['title']."','".$_POST['review_content']."','".$_POST['date']."')";		  	
+		$result = $conn->query($query);
+		if (!$result) return false;	 
+		
+		$array = file("sensitive_word_list.txt");
+		foreach($array as $line){
+			$key_word = trim($line);
+			if(strpos($_POST['review_content'], $key_word) !== false){
+				$query = "select max(review_id) as max_review_id from review";	  	
+				$result = $conn->query($query);
+				if (!$result) return false;
+				$row = $result->fetch_assoc();
+				$max_review_id = $row['max_review_id'];
+				
+				$query = "insert into malign_according values(NULL, 
+		          							0, 
+		          							'".$max_review_id."'
+		         							)";
+			
+				$result = $conn->query($query);
+				if (!$result) return false;
+				break;	 
+			}	
+		}
+		return true;	 
+	 } 
  ?>
 
 

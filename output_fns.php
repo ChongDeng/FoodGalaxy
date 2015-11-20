@@ -38,7 +38,6 @@ function do_html_header($title) {
   			</div>
   			
   			<ul class="nav navbar-nav">
-  				<li class="active"><a href="#">Food Recommendation <span class="sr-only"></span></a></li>
   				
   				<li class="dropdown"><a href="#"  class="dropdown-toggle" 
   				data-toggle="dropdown" role="button" aria-expanded="false">
@@ -77,16 +76,17 @@ function do_html_header($title) {
         		</li>
         		
   			</ul>
-  			<form class="navbar-form navbar-left" role="search" action="show_food.php" method="get">
+  			<form class="navbar-form navbar-left" role="search" action="search_result_by_food_name.php" method="get">
         		<div class="form-group">
-          			<input type="text" class="form-control" name = "search_key" placeholder="Search food name, or category">
+          			<input type="text" class="form-control" name = "search_key" placeholder="Search food name">
         		</div>
         		<button type="submit" class="btn btn-primary">Search</button>
-      		</form>
-      		<a href="logout.php" class="btn btn-primary navbar-btn navbar-right" role="button">Log out</a>
-      		<a href="login.php" class="btn btn-primary navbar-btn navbar-right" role="button">Log in</a>		
+        		<a href="advanced_search_result.php" class="btn btn-primary" role="button">Advanced Search</a>
+      		</form>     		
       		
-      		<p class="navbar-text"><b><?php session_start(); if($_SESSION['name']) echo "Logged in as: ".$_SESSION['name']; else echo "Welcome to Food Galaxy";?></b></p>
+      		<p class="navbar-text"><b><?php session_start(); if($_SESSION['name']) echo "Logged in as: ".$_SESSION['name']; else echo "Welcome to Food Galaxy";?></b></p>      		
+      		<a href="login.php" class="btn btn-primary navbar-btn " role="button">Log in</a>
+      		<a href="logout.php" class="btn btn-primary navbar-btn " role="button">Log out</a>		
   		</div>
   	</nav>
   	
@@ -112,6 +112,8 @@ function do_html_header($title) {
         </div>
       </div>
     </div>
+    
+    
   	
 <?php
   if($title) {
