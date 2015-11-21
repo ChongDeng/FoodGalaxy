@@ -36,8 +36,8 @@ include ('food_galaxy_fns.php');
 					  <div class=\"thumbnail\">
 					    <a href=\"food_details.php?food_id=".$row['food_id']."\"><img src=\"img/".$row['food_id'].".jpg\" alt=\"...\"></a>
 						<div class=\"caption\">
-						  <h3>".$row['name']."</h3>
-						  <p>".$row['description']."</p>
+						  <h3><b>Name: </b>".$row['name']."</h3>
+						  <p><b>Description: </b>".$row['description']."</p>
 						   <p>
 						      <a href=\"food_details.php?food_id=".$row['food_id']."\" class=\"btn btn-primary\" role=\"button\">View Details</a>				     			     
 						   </p>

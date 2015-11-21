@@ -40,8 +40,10 @@
 			
 		$conn = db_connect();
 		$quey = null; $result = null;
-		$merchant_id = $_GET['merchant_id'];	
-		$query = "select food_id from food where merchant_id = '".$merchant_id."'";
+		$merchant_id = $_GET['merchant_id'];			
+		$query = "select food.name as food_name, food_id, price, description
+				  from food, merchant
+				  where food.merchant_id  = merchant.merchant_id and merchant.merchant_id = '".$merchant_id."'";
 		$result = @$conn->query($query);
 	   	if (!$result) echo  "Error: Can't execute query about food list of merchant";
 	   	while($row = $result->fetch_assoc()){   			
@@ -49,10 +51,8 @@
 				  <div class=\"thumbnail\">
 				    <a href=\"merchant_food_details.php?food_id=".$row['food_id']."\"><img src=\"img/".$row['food_id'].".jpg\" alt=\"...\"></a>
 					<div class=\"caption\">
-					  <h3>".$row['name']."</h3>
-					  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. 
-					   Donec id elit non mi porta gravida at eget metus.
-					   Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+					  <h3><b>Name: </b>".$row['food_name']."</h3>
+					  <p><b>Description: </b>".$row['description']."</p>
 					   <p>
 					      <a href=\"merchant_food_details.php?food_id=".$row['food_id']."\" class=\"btn btn-primary\" role=\"button\">View & Edit</a> 
 					      <a href=\"food_of_merchant.php?merchant_id=".$merchant_id."&delete_food_id=".$row['food_id']."\" class=\"btn btn-primary\" role=\"button\">Delete this food</a>				     
