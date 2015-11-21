@@ -42,17 +42,16 @@ function do_html_header($title) {
   				<li class="dropdown"><a href="#"  class="dropdown-toggle" 
   				data-toggle="dropdown" role="button" aria-expanded="false">
   				Customer <span class="caret"></span></a>
-		          <ul class="dropdown-menu" role="menu">
+		          <ul class="dropdown-menu" role="menu" onclick="<?php session_start(); if(!$_SESSION['valid_user']) echo"return false";?>">
 		            <li><a href="view_notifications.php?user_id=<?php session_start(); echo $_SESSION['valid_user'];?>">message box</a></li>		            
-		            <li class="divider"></li>
-		            <li><a href="#">world</a></li>		           
+		            	           
 		          </ul>
         		</li>    
         		    		
         		<li class="dropdown"><a href="#"  class="dropdown-toggle" 
   				data-toggle="dropdown" role="button" aria-expanded="false">
   				Merchant <span class="caret"></span></a>
-		          <ul class="dropdown-menu" role="menu">
+		          <ul class="dropdown-menu" role="menu" onclick="<?php session_start(); if(!$_SESSION['valid_merchant']) echo"return false";?>">
 		            <li><a href="merchant_upload_food.php">upload food</a></li>		            
 		            <li class="divider"></li>
 		            <li><a href="food_of_merchant.php?merchant_id=<?php session_start(); echo $_SESSION['valid_merchant'];?>">view my food</a></li>
@@ -68,7 +67,7 @@ function do_html_header($title) {
         		<li class="dropdown"><a href="#"  class="dropdown-toggle" 
   				data-toggle="dropdown" role="button" aria-expanded="false">
   				Administrator <span class="caret"></span></a>
-		          <ul class="dropdown-menu" role="menu">
+		          <ul class="dropdown-menu" role="menu" onclick="<?php session_start(); if(!$_SESSION['valid_admin']) echo"return false";?>">
 		            <li><a href="sensitive_words_management.php">manage black list</a></li>		            
 		            <li class="divider"></li>
 		            <li><a href="view_malign_accordings.php">monitor</a></li>		           
@@ -86,7 +85,8 @@ function do_html_header($title) {
       		
       		<p class="navbar-text"><b><?php session_start(); if($_SESSION['name']) echo "Logged in as: ".$_SESSION['name']; else echo "Welcome to Food Galaxy";?></b></p>      		
       		<a href="login.php" class="btn btn-primary navbar-btn " role="button">Log in</a>
-      		<a href="logout.php" class="btn btn-primary navbar-btn " role="button">Log out</a>		
+      		<a href="logout.php" class="btn btn-primary navbar-btn " role="button">Log out</a>
+      		<a href="admin_login.php" class="btn btn-primary navbar-btn " role="button">Admin Log in</a>		
   		</div>
   	</nav>
   	

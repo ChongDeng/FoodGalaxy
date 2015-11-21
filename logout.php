@@ -2,7 +2,8 @@
 	session_start();
 	unset($_SESSION['valid_user']);
 	unset($_SESSION['valid_merchant']);
-	unset($_SESSION['name']);	
+	unset($_SESSION['name']);
+	unset($_SESSION['valid_admin']);	
 	session_destroy();
 	
 	require_once('food_galaxy_fns.php');
