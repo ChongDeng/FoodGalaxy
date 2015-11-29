@@ -43,7 +43,7 @@ create table food
   name char(80) not null,
   merchant_id int,
   price char(5),
-  popularity_level int,
+  popularity_level int default 1,
   description text,
   index(name),
   index(catogery_name)
@@ -120,6 +120,32 @@ as select food.name as food_name, food_id, description, price, food.popularity_l
 from food, merchant
 where merchant.merchant_id = food.merchant_id;
 
+drop procedure if exists update_popularity_level;
+create procedure update_popularity_level(in FoodId int)
+	begin
+		declare res int;
+
+		update food 
+		set popularity_level = popularity_level + 1
+		where food_id = FoodId;
+		
+		select popularity_level into res 
+		from food 
+		where food_id = FoodId;	
+		
+		if res > 5 then
+			insert into recommendation(food_id)
+			values(FoodId);
+                end if;
+	end;
+
+CREATE TRIGGER t_after_insert_on_review
+AFTER INSERT ON review
+FOR EACH ROW
+BEGIN
+ call update_popularity_level(new.target_id);
+END;
+	
 
 grant select, insert, update, delete
 on food_galaxy.*

@@ -238,14 +238,15 @@
 				$catogery_name =  $row['name'];
 			}
 		}		
-				
-		$query = "insert into food values(NULL, 
-	          							'".$catogery_name."', 
-	          							'".$_POST['name']."', 
-	          							'".$_POST['merchant_id']."', 
-	          							'".$_POST['price']."',
-	          							NULL,'".$_POST['description']."'
-	         							)";
+						
+		$query = "insert into food(name, catogery_name, merchant_id, price, description)
+				  values('".$_POST['name']."',
+				  		 '".$catogery_name."',
+				  		 '".$_POST['merchant_id']."', 
+	          			 '".$_POST['price']."',
+	          			 '".$_POST['description']."'
+				  )";    
+		//write_log($query);
 		//return $query;
 		$result = @$conn->query($query);
 		if(!$result) return  "Error: Can't add new food into database";

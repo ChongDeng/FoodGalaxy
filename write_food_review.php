@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_GET["action"]) and $_GET["action"]=="getText"){ 	 	
  	if(($_POST['review_content']) && ($_POST['food_id'])) { //write food review 		
  		$res = write_food_review(); 
@@ -19,11 +18,9 @@ if(isset($_GET["action"]) and $_GET["action"]=="getText"){
  
  ?>
  <script type="text/javascript">
-
  	
  
 	function review_process(){		
-
 		var title = document.getElementById("title").value;
 		var content = document.getElementById("content").value;
 		var food_id = "<?php echo $_GET["food_id"];?>";
@@ -35,7 +32,6 @@ if(isset($_GET["action"]) and $_GET["action"]=="getText"){
 		           "&title=" + title +"&date=" + date;
 		var action = "action=getText";
 		var url = "write_food_review.php";
-
 		var xmlHttp = false;
 		try {
 			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
@@ -149,16 +145,13 @@ if(isset($_GET["action"]) and $_GET["action"]=="getText"){
 		         							)";
 			
 				$result = $conn->query($query);
-				// end transaction
-  				$conn->commit();
-  				$conn->autocommit(TRUE);
 				if (!$result) return false;
 				break;	 
 			}	
 		}
+		// end transaction
+		$conn->commit();
+  		$conn->autocommit(TRUE);
 		return true;	 
 	 } 
  ?>
-
-
-

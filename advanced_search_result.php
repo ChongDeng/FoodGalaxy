@@ -224,9 +224,9 @@
 	   	include_once('db_fns.php');
 	   	include_once('galaxy_fns.php');	  
 	   	$conn = db_connect();	  
-	   	$query = "select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
-				 from food, merchant
-				 where merchant.merchant_id = food.merchant_id and merchant.name = '".$merchant_name."'";
+	   	$query = "select * 
+				  from food_by_merchant_name_view
+				  where merchant_name= '".$merchant_name."'";
 	      
 	   	$result = @$conn->query($query);	   
 	   	if (!$result){
