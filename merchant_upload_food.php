@@ -8,7 +8,7 @@
  	    print $res; 	    
   	exit();  	
   }
-   
+ 
   $filename;
   if(isset($_FILES["file"]["tmp_name"])){
 		//定义文件存放的目录
@@ -18,14 +18,14 @@
 		$filename = "temp".time()."_".$_FILES["file"]["name"];	
 		global $filename;	
 		//$filename = $_FILES["file"]["name"];
-		echo "<br>".$filename."<br>";	
+		//echo "<br>".$filename."<br>";	
 		//使用move_uploaded_file()把上传的临时文件,移动到新目录
 		if(move_uploaded_file($_FILES["file"]["tmp_name"],$dir.$filename)){
-			echo "上传文件成功!";
+			echo "Success in uploading picture!";
 			echo $_FILES["file"]["tmp_name"];
 			
 		}else{
-			echo "上传文件失败!";		
+			echo "Error, Please choose food picture!";		
 		}
 		unset($_FILES["file"]["tmp_name"]);
   }
@@ -42,6 +42,19 @@
 
 <script type="text/javascript"> 
 	function upload(){
+
+		var has_uploaded_picture = "<?php
+										$dir_name = "temp_files";
+										$dir = scandir($dir_name);
+										if(count($dir) == 2) echo "false";
+				 						else echo count($dir);
+									?>";
+		
+		if(has_uploaded_picture == "false"){
+			alert("Error! Please upload the picture first!");
+			return;
+		}
+		
 		
 		var name = document.getElementById("name").value;
 		var price = document.getElementById("price").value;
@@ -199,6 +212,9 @@
 		//$sql = "insert into review values(NULL,'".$_POST['name']."','".$_POST['price']."','".$_POST['description']."','".$_POST['category']."','".$_POST['new_category']."','".$_POST['file_path']."')";
 		
 		$conn = db_connect();
+		//turning off autocommit
+  		$conn->autocommit(FALSE);
+  		
 		$quey; $result;
 		if(trim($_POST['new_category'])){		//判断是否为空	
    			$query = "select * from food_category where name = '".trim($_POST['new_category'])."'";
@@ -222,8 +238,7 @@
 				$catogery_name =  $row['name'];
 			}
 		}		
-		
-		
+				
 		$query = "insert into food values(NULL, 
 	          							'".$catogery_name."', 
 	          							'".$_POST['name']."', 
@@ -234,7 +249,6 @@
 		//return $query;
 		$result = @$conn->query($query);
 		if(!$result) return  "Error: Can't add new food into database";
-
 		
 		$query = "select max(food_id) as max_food_id from food";
 		$result = @$conn->query($query);   			
@@ -250,7 +264,7 @@
 			return "Error: Can't create photo file in the corresponding dir";
 		unlink($file_to_be_delteted);	
 		
-		write_log("begin================");
+		//write_log("begin================");
 		$array = file("sensitive_word_list.txt");
 		foreach($array as $line){
 			$key_word = trim($line);
@@ -262,11 +276,16 @@
 		         							)";
 				write_log($query);
 				$result = $conn->query($query);
+												
 				if (!$result) return false;
 				break;	 
 			}	
 		}
-	    write_log("end=======================");
+		// end transaction
+		$conn->commit();
+  		$conn->autocommit(TRUE);
+  				
+	    //write_log("end=======================");
 		//return 
 		//return $max_food_id." ".$file_to_be_delteted." " .$file_to_be_created;
 		/*

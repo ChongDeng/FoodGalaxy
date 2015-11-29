@@ -4,3 +4,75 @@ sql: select * from admin
 sql: select * from admin
 	                         where name = 'admin'
 	                         and password = sha1('aaaaaa')
+sql: select * from admin
+	                         where name = 'admin'
+	                         and password = sha1('aaaaaa')
+sql: select * from admin
+	                         where name = 'admin'
+	                         and password = sha1('aaaaaa')
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+begin================
+end=======================
+sql: select * from admin
+	                         where name = 'admin'
+	                         and password = sha1('aaaaaa')
+sql: select * from admin
+	                         where name = 'admin'
+	                         and password = sha1('aaaaaa')
+sql: select * from admin
+	                         where name = 'admin'
+	                         and password = sha1('aaaaaa')
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japanese'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Thai'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Thai'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Thaizxc'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Thaiere'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Thaisdfs'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Japan'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Thai'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Thai123'
+select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
+				  from food
+				  where catogery_name  = 'Thai'
+sql: select * from admin
+	                         where name = 'admin'
+	                         and password = sha1('aaaaaa')
+sql: select * from admin
+	                         where name = 'admin'
+	                         and password = sha1('aaaaaa')
+insert into malign_according values(NULL, 
+		          							1, 
+		          							'33'
+		         							)
+11111
+22222
+33333
+11111
+22222
+33333
+11111
+22222
+33333

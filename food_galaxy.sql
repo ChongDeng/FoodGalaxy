@@ -32,7 +32,8 @@ create table merchant
 create table food_category
 (
   food_category_id int unsigned not null auto_increment primary key,
-  name char(60) not null 
+  name char(60) not null,
+  index(name) 
 );
 
 create table food
@@ -43,7 +44,9 @@ create table food
   merchant_id int,
   price char(5),
   popularity_level int,
-  description text
+  description text,
+  index(name),
+  index(catogery_name)
 );
 
 create table review
@@ -111,6 +114,11 @@ create table coupon
   content text,
   expiresdate time 
 );
+
+create view food_by_merchant_name_view
+as select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level, merchant.name as merchant_name
+from food, merchant
+where merchant.merchant_id = food.merchant_id;
 
 
 grant select, insert, update, delete

@@ -38,7 +38,7 @@ echo 	"<div class=\"panel panel-default\">
 	            <td>Price: </td>  <td>".$food_info[0]['price']."</td>
 	          </tr>
 	          <tr>
-	            <td>Popularity Level: </td>  <td>".$food_info[0]['popularity_level']."</td>
+	            <td>Popularity Level: </td>  <td>".$food_info[0]['popularity_level']." star</td>
 	          </tr>
 	        </tbody>
 	      </table>
