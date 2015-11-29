@@ -44,7 +44,8 @@ function do_html_header($title) {
   				Customer <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu" onclick="<?php session_start(); if(!$_SESSION['valid_user']) echo"return false";?>">
 		            <li><a href="view_notifications.php?user_id=<?php session_start(); echo $_SESSION['valid_user'];?>">message box</a></li>		            
-		            	           
+		            <li class="divider"></li>
+		            <li><a href="view_recommendation.php">recommendation food</a></li>		            	           
 		          </ul>
         		</li>    
         		    		

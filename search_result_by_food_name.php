@@ -1,7 +1,5 @@
 <?php
-include ('food_galaxy_fns.php');
-  // The shopping cart needs sessions, so start one  
-   
+   include ('food_galaxy_fns.php');   
    $search_key = $_GET['search_key'];
    do_html_header("Search Results: ".$search_key);
    display_search_result_by_name($search_key);   

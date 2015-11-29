@@ -60,7 +60,7 @@ function display_food_reviews($food_info){
 	echo "<h3>Reviews made by customers:</h3>";
 	
 	$conn = db_connect();	
-    $query = "select * from review where type = 0 and target_id = '".$food_id."'";
+    $query = "select * from review where type = 0 and target_id = '".$food_id."' ORDER BY review_id desc";
     //echo $query;
 	$result = @$conn->query($query);
 	//echo $result->num_rows;

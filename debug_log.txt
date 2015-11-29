@@ -4,3 +4,23 @@ sql: select * from admin
 sql: select * from admin
 	                         where name = 'admin'
 	                         and password = sha1('aaaaaa')
+sql: select * from admin
+	                         where name = 'admin'
+	                         and password = sha1('aaaaaa')
+insert into malign_according values(NULL, 
+		          							1, 
+		          							'12'
+		         							)
+sql: select * from admin
+	                         where name = 'admin'
+	                         and password = sha1('aaaaaa')
+insert into malign_according values(NULL, 
+		          							1, 
+		          							'13'
+		         							)
+sql: select * from admin
+	                         where name = 'admin'
+	                         and password = sha1('aaaaaa')
+sql: select * from admin
+	                         where name = 'admin'
+	                         and password = sha1('aaaaaa')

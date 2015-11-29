@@ -120,6 +120,13 @@ as select food.name as food_name, food_id, description, price, food.popularity_l
 from food, merchant
 where merchant.merchant_id = food.merchant_id;
 
+create view food_recommendation_view
+as select name, food_id, description
+from food
+where food_id in(
+				select distinct food_id from recommendation
+			);
+			
 drop procedure if exists update_popularity_level;
 create procedure update_popularity_level(in FoodId int)
 	begin

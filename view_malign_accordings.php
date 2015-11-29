@@ -98,7 +98,8 @@
 		$conn = db_connect();	
 	    $query = "select review.author_id as user_id, name, title, content, date
 				  from malign_according,review,customer
-				  where malign_according.target_id = review.review_id and malign_according.type = 0 and review.author_id = customer.customer_id";	    
+				  where malign_according.target_id = review.review_id and malign_according.type = 0 and review.author_id = customer.customer_id
+				  order by malign_accord_id desc";	    
 		$result = @$conn->query($query);		
 	   	while($row = $result->fetch_assoc()){
 			echo " <form class=\"form-horizontal\" id =\"parent\">
@@ -133,7 +134,8 @@
 		$conn = db_connect();	
 	    $query = "select food.name as food_name,merchant.name as merchant_name, description, merchant.merchant_id as merchant_id 
 				  from food, malign_according, merchant
-				  where malign_according.target_id = food.food_id and malign_according.type = 1 and merchant.merchant_id = food.merchant_id";	    
+				  where malign_according.target_id = food.food_id and malign_according.type = 1 and merchant.merchant_id = food.merchant_id
+				  order by malign_accord_id desc";	    
 		$result = @$conn->query($query);		
 	   	while($row = $result->fetch_assoc()){	   	
 	   		echo " <form class=\"form-horizontal\" id =\"parent\">
