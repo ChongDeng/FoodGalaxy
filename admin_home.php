@@ -16,6 +16,7 @@ if ($username && $passwd) {
 	if($id != -1){
 		
     	$_SESSION['valid_admin'] = $username;
+    	$_SESSION['name'] = $username;
     	do_html_header('Home Page');	
     	echo '<div class="form-group" id="success_message">
 		    <div class="col-sm-offset-2 col-sm-8">
@@ -53,9 +54,7 @@ function admin_login($username, $password, $type) {
 	$result = $conn->query("select * from admin
 	                         where username = '".$username."'
 	                         and password = sha1('".$password."')");
-	write_log("sql: "."select * from admin
-	                         where name = '".$username."'
-	                         and password = sha1('".$password."')");
+	
 	if(!$result)  return -1;	 
 	 
 	if($result->num_rows>0) return 0;

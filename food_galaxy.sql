@@ -70,12 +70,6 @@ create table complaint
   date date not null
 );
 
-create table black_list
-(
-  black_list_id int unsigned not null auto_increment primary key,
-  key_words char(20) 
-);
-
 create table malign_person
 (
   malign_person_id int unsigned not null auto_increment primary key,

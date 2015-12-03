@@ -15,6 +15,7 @@ if ($username && $passwd) {
 	
 	$id = login($username, $passwd, $type);
 	if($id != -1){
+		write_log($username." logged in");
 		if($type == 0)
     		$_SESSION['valid_user'] = $id;
     	else if($type == 1)

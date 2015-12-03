@@ -1,26 +1,117 @@
-sql: select * from admin
-	                         where name = 'nanding'
-	                         and password = sha1('aaaaaa')
-sql: select * from admin
-	                         where name = 'admin'
-	                         and password = sha1('aaaaaa')
-sql: select * from admin
-	                         where name = 'admin'
-	                         and password = sha1('aaaaaa')
-insert into malign_according values(NULL, 
-		          							1, 
-		          							'12'
-		         							)
-sql: select * from admin
-	                         where name = 'admin'
-	                         and password = sha1('aaaaaa')
-insert into malign_according values(NULL, 
-		          							1, 
-		          							'13'
-		         							)
-sql: select * from admin
-	                         where name = 'admin'
-	                         and password = sha1('aaaaaa')
-sql: select * from admin
-	                         where name = 'admin'
-	                         and password = sha1('aaaaaa')
+nanding logged in	at time: 17:28, 30th November
+nanding did a search	at time: 17:29, 30th November
+nanding did a search	at time: 17:29, 30th November
+nanding did a search	at time: 17:29, 30th November
+nanding did a search	at time: 17:29, 30th November
+nanding wrote a review	at time: 17:31, 30th November
+nanding wrote a complaint	at time: 17:33, 30th November
+nanding did a search	at time: 17:33, 30th November
+nanding logged out	at time: 17:33, 30th November
+guchen logged in	at time: 17:33, 30th November
+guchen uploaded a food	at time: 17:36, 30th November
+
+test1 logged in	at time: 03:01, 1st December
+test1 did a search	at time: 03:02, 1st December
+test1 wrote a review	at time: 03:04, 1st December
+test1 logged out	at time: 03:07, 1st December
+test1 logged in	at time: 03:07, 1st December
+test1 did a search	at time: 03:07, 1st December
+test1 logged out	at time: 03:09, 1st December
+guchen logged in	at time: 03:11, 1st December
+guchen logged out	at time: 03:12, 1st December
+test1 logged in	at time: 03:12, 1st December
+test1 did a search	at time: 03:12, 1st December
+test1 wrote a complaint	at time: 03:13, 1st December
+test1 logged out	at time: 03:14, 1st December
+guchen logged in	at time: 03:14, 1st December
+ did a search	at time: 03:16, 1st December
+ did a search	at time: 03:17, 1st December
+ did a search	at time: 03:18, 1st December
+ did a search	at time: 03:18, 1st December
+ did a search	at time: 03:18, 1st December
+guchen logged in	at time: 03:19, 1st December
+guchen logged out	at time: 03:19, 1st December
+ did a search	at time: 03:20, 1st December
+ did a search	at time: 03:20, 1st December
+ did a search	at time: 03:20, 1st December
+ did a search	at time: 03:20, 1st December
+ did a search	at time: 03:21, 1st December
+ logged out	at time: 03:21, 1st December
+chong logged in	at time: 03:22, 1st December
+ wrote a review	at time: 03:22, 1st December
+ wrote a review	at time: 03:22, 1st December
+ wrote a review	at time: 03:22, 1st December
+ wrote a review	at time: 03:22, 1st December
+ wrote a review	at time: 03:23, 1st December
+ logged out	at time: 03:24, 1st December
+ logged out	at time: 03:24, 1st December
+guchen logged out	at time: 03:24, 1st December
+ did a search	at time: 03:24, 1st December
+ did a search	at time: 03:24, 1st December
+ wrote a complaint	at time: 03:25, 1st December
+ wrote a complaint	at time: 03:25, 1st December
+ wrote a complaint	at time: 03:25, 1st December
+ wrote a complaint	at time: 03:25, 1st December
+ logged out	at time: 03:25, 1st December
+ wrote a complaint	at time: 03:25, 1st December
+ wrote a complaint	at time: 03:25, 1st December
+test1 logged in	at time: 03:25, 1st December
+test1 did a search	at time: 03:25, 1st December
+test1 did a search	at time: 03:25, 1st December
+ wrote a review	at time: 03:25, 1st December
+test1 wrote a review	at time: 03:25, 1st December
+test1 logged out	at time: 03:26, 1st December
+ logged out	at time: 03:30, 1st December
+ logged out	at time: 03:30, 1st December
+guchen logged in	at time: 03:31, 1st December
+guchen logged out	at time: 03:32, 1st December
+ logged out	at time: 03:32, 1st December
+nanding logged in	at time: 03:32, 1st December
+test1 logged in	at time: 03:32, 1st December
+nanding did a search	at time: 03:32, 1st December
+test1 logged out	at time: 03:34, 1st December
+ did a search	at time: 03:34, 1st December
+ wrote a review	at time: 03:35, 1st December
+test1 logged in	at time: 03:35, 1st December
+test1 did a search	at time: 03:35, 1st December
+test1 wrote a review	at time: 03:35, 1st December
+test1 wrote a review	at time: 03:37, 1st December
+admin logged out	at time: 04:45, 1st December
+guchen logged in	at time: 04:45, 1st December
+guchen logged out	at time: 04:45, 1st December
+nanding logged in	at time: 04:45, 1st December
+nanding logged out	at time: 04:46, 1st December
+ttt logged in	at time: 04:47, 1st December
+ttt did a search	at time: 04:48, 1st December
+ttt wrote a review	at time: 04:48, 1st December
+ttt wrote a review	at time: 04:48, 1st December
+ttt wrote a review	at time: 04:48, 1st December
+ttt did a search	at time: 04:49, 1st December
+ttt did a search	at time: 04:49, 1st December
+ttt did a search	at time: 04:50, 1st December
+ttt logged out	at time: 04:51, 1st December
+guchen logged in	at time: 04:51, 1st December
+guchen logged out	at time: 04:52, 1st December
+admin logged out	at time: 04:52, 1st December
+admin logged out	at time: 04:57, 1st December
+yyy logged in	at time: 04:59, 1st December
+yyy did a search	at time: 04:59, 1st December
+yyy wrote a review	at time: 04:59, 1st December
+yyy wrote a review	at time: 05:00, 1st December
+yyy did a search	at time: 05:00, 1st December
+yyy logged out	at time: 05:00, 1st December
+guchen logged in	at time: 05:01, 1st December
+guchen logged out	at time: 05:02, 1st December
+admin logged out	at time: 05:26, 1st December
+ logged out	at time: 05:28, 1st December
+test2 logged in	at time: 06:06, 1st December
+test2 did a search	at time: 06:06, 1st December
+test2 wrote a review	at time: 06:07, 1st December
+test2 wrote a review	at time: 06:08, 1st December
+test2 logged out	at time: 06:08, 1st December
+guchen logged in	at time: 06:08, 1st December
+guchen logged out	at time: 06:09, 1st December
+admin logged out	at time: 06:11, 1st December
+test2 logged in	at time: 06:11, 1st December
+test2 logged out	at time: 06:12, 1st December
+guchen logged in	at time: 06:12, 1st December

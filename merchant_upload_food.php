@@ -206,6 +206,12 @@
 ?>
 <?php
 	function merchant_upload_food(){
+		
+		require_once('food_galaxy_fns.php');
+		session_start();	
+   		$name = $_SESSION['name'];   		
+   		write_log($name." uploaded a food");
+   		
 		require_once ('food_galaxy_fns.php');
 		$catogery_name = $_POST['category'];
 		

@@ -2,7 +2,12 @@
    include ('food_galaxy_fns.php');   
    $search_key = $_GET['search_key'];
    do_html_header("Search Results: ".$search_key);
-   display_search_result_by_name($search_key);   
+   display_search_result_by_name($search_key);
+
+   session_start();	
+   $name = $_SESSION['name'];
+   write_log($name." did a search");
+   
    do_html_footer();
 ?>
 

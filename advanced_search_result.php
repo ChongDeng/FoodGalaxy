@@ -1,5 +1,6 @@
 <?php
-	if(isset($_GET["action"]) and $_GET["action"]=="getJSON"){
+	if(isset($_GET["action"]) and $_GET["action"]=="getJSON"){	
+   
 		//发送头文件
 		header('Content-Type:text/html;charset=GB2312');
 		if($_GET['merchant_name']){			
@@ -215,6 +216,11 @@
 	
 	
 	function search_by_merchant_name($merchant_name){
+		
+		require_once('food_galaxy_fns.php');
+		session_start();	
+   		$name = $_SESSION['name'];   		
+   		write_log($name." did a search");
 	 				
 		// query database for the books in a category
 	   	if ((!$merchant_name) || ($merchant_name == '')) {
@@ -248,6 +254,10 @@
 	
 	function search_by_category_name($category_name){
 		
+		require_once('food_galaxy_fns.php');
+		session_start();	
+   		$name = $_SESSION['name'];   		
+   		write_log($name." did a search");
 	 				
 		// query database for the books in a category
 	   	if ((!$category_name) || ($category_name == '')) {
@@ -260,7 +270,7 @@
 	   	$query = "select food.name as food_name, food_id, description, price, food.popularity_level as popularity_level
 				  from food
 				  where catogery_name  = '".$category_name."'";
-	    write_log($query);  
+	    //write_log($query);  
 	   	$result = @$conn->query($query);	   
 	   	if (!$result){
 	   		return  "Error: Can't execute query about food";	   		

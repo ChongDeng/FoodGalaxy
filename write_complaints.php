@@ -114,6 +114,11 @@
 <?php
 	function write_complaint(){
 		
+		require_once('food_galaxy_fns.php');
+		session_start();	
+   		$name = $_SESSION['name'];   		
+   		write_log($name." wrote a complaint");
+   				
 		require_once ('food_galaxy_fns.php');
 		$conn = db_connect();
 		$query = "insert into complaint values(NULL, 

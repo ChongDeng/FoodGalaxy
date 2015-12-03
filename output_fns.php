@@ -33,7 +33,7 @@ function do_html_header($title) {
   		<div class="container-fluid">
   			<div class="navbar-header logo">
   				<a  class="navbar-brand" href="#">
-  					<img alt="Brand" src="img/logo.jpg" style="width: 100px">
+  					<img alt="Brand" src="img/logo2.jpg" style="width: 100px">
   				</a>
   			</div>
   			

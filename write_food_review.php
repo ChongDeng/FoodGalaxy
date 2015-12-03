@@ -120,8 +120,14 @@ if(isset($_GET["action"]) and $_GET["action"]=="getText"){
  
  <?php
  	 function write_food_review(){	
-		require_once ('db_fns.php');
-		  
+ 	 	
+ 	 	require_once('food_galaxy_fns.php');
+		session_start();	
+   		$name = $_SESSION['name'];   		
+   		write_log($name." wrote a review");
+   		
+		require_once ('db_fns.php');	
+   		
 		$conn = db_connect();
 		//turning off autocommit
   		$conn->autocommit(FALSE);
